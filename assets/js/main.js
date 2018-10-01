@@ -4,7 +4,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-(function ($) {
+(function ($, browser) {
 
   var $window = $(window),
     $body = $('body'),
@@ -398,4 +398,4 @@
       $main._show(location.hash.substr(1), true);
     });
 
-})(jQuery);
+})(jQuery, browser);
