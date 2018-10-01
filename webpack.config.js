@@ -31,25 +31,25 @@ module.exports = (env, argv) => {
         {
           test: /\.(sa|sc|c)ss$/,
           use: [
-            argv.mode === 'production'
-              ? {
+            {
+              ...argv.mode === 'production' ? {
                 loader: MiniCssExtractPlugin.loader,
                 options: { publicPath: './' },
+              } : {
+                loader: 'style-loader',
               }
-              : {
-                loader: "style-loader" // creates style nodes from JS strings
-              },
-            {
-              loader: "css-loader" // translates CSS into CommonJS
             },
             {
-              loader: "sass-loader" // compiles Sass to CSS
-            }
-          ]
+              loader: "css-loader",
+            },
+            {
+              loader: "sass-loader",
+            },
+          ],
         },
         {
           // Load all images as base64 encoding if they are smaller than 8192 bytes
-          test: /\.(png|jpg|gif)$/,
+          test: /\.(png|jpg|gif|svg)$/,
           use: [
             {
               loader: 'url-loader',
@@ -58,9 +58,15 @@ module.exports = (env, argv) => {
                 // hence we preserve the [path]
                 name: '[path][name].[ext]?hash=[hash:20]',
                 limit: 8192
+              },
+            },
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                bypassOnDebug: argv.mode === 'development'
               }
             }
-          ]
+          ],
         }
       ],
     },

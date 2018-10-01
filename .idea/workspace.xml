@@ -2,24 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="510ae3f8-3789-4f94-9185-baa8a5f8e367" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android-chrome-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android-chrome-512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browserconfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon-16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mstile-144x144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mstile-150x150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mstile-310x150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mstile-310x310.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mstile-70x70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg.jpg.bu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/pic01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/pic02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/pic03.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/safari-pinned-tab.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site.webmanifest" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,13 +35,14 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="babelrc" value="1" />
-          <entry key="css" value="1" />
+          <entry key="css" value="2" />
+          <entry key="gitignore" value="1" />
           <entry key="html" value="7" />
-          <entry key="jpg" value="7" />
-          <entry key="js" value="10" />
+          <entry key="jpg" value="13" />
+          <entry key="js" value="12" />
           <entry key="json" value="3" />
-          <entry key="png" value="4" />
-          <entry key="scss" value="5" />
+          <entry key="png" value="7" />
+          <entry key="scss" value="7" />
           <entry key="svg" value="3" />
           <entry key="txt" value="1" />
           <entry key="xml" value="1" />
@@ -59,13 +50,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="1" />
+          <entry key="CSS" value="2" />
           <entry key="HTML" value="7" />
-          <entry key="Image" value="11" />
+          <entry key="Image" value="20" />
           <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="10" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="SCSS" value="5" />
+          <entry key="JavaScript" value="12" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="SCSS" value="7" />
           <entry key="SVG" value="3" />
           <entry key="XML" value="1" />
         </counts>
@@ -73,8 +64,9 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="babelrc" value="40" />
-          <entry key="html" value="2041" />
-          <entry key="js" value="1370" />
+          <entry key="gitignore" value="16" />
+          <entry key="html" value="2053" />
+          <entry key="js" value="1926" />
           <entry key="json" value="357" />
           <entry key="md" value="1" />
           <entry key="scss" value="259" />
@@ -83,11 +75,11 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="2041" />
+          <entry key="HTML" value="2053" />
           <entry key="JSON" value="397" />
-          <entry key="JavaScript" value="1370" />
+          <entry key="JavaScript" value="1926" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="182" />
+          <entry key="PLAIN_TEXT" value="198" />
           <entry key="SCSS" value="259" />
         </counts>
       </usages-collector>
@@ -109,17 +101,26 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/index.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="483">
-                      <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+                    <state relative-caret-position="993">
+                      <caret line="45" column="1522" lean-forward="true" selection-start-line="45" selection-start-column="1522" selection-end-line="45" selection-end-column="1522" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/webpack.config.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="782">
+                      <caret line="34" column="47" lean-forward="true" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
                     </state>
                   </provider>
                 </entry>
               </file>
               <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/webpack.config.js">
+                <entry file="file://$PROJECT_DIR$/.gitignore">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="276">
-                      <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+                    <state relative-caret-position="1300">
+                      <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
                     </state>
                   </provider>
                 </entry>
@@ -190,8 +191,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/assets/js/main.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="138">
-                      <caret line="5" selection-start-line="5" selection-end-line="5" />
+                    <state relative-caret-position="713">
+                      <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
                       <folding>
                         <element signature="n#!!doc" expanded="true" />
                         <element signature="e#252#268#0" expanded="true" />
@@ -209,7 +210,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="437">
+                <state relative-caret-position="101">
                   <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
                 </state>
               </provider>
@@ -227,12 +228,16 @@
       <find>inner</find>
       <find>browser</find>
       <find>.png</find>
-      <find>png</find>
       <find>util</find>
+      <find>overlay</find>
+      <find>png</find>
     </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -249,6 +254,7 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -287,6 +293,17 @@
             <path>
               <item name="downfall-landing" type="b2602c69:ProjectViewProjectNode" />
               <item name="downfall-landing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="downfall-landing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="downfall-landing" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="downfall-landing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="downfall-landing" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="downfall-landing" type="b2602c69:ProjectViewProjectNode" />
@@ -353,22 +370,22 @@
       <option name="presentableId" value="Default" />
       <updated>1538339877992</updated>
       <workItem from="1538339879585" duration="517000" />
-      <workItem from="1538340419850" duration="24040000" />
+      <workItem from="1538340419850" duration="27712000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24557000" />
+    <option name="totallyTimeSpent" value="28229000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-571" width="1920" height="2137" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19222577" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1682641" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32971907" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49891067" weight="0.3292797" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49902344" weight="0.39943874" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -396,25 +413,10 @@
     <entry file="file://$PROJECT_DIR$/images/bg.jpg.bu">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/overlay.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/pic01.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/pic02.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/pic03.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/images/archive.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/bg.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/archive.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/images/discord.svg">
@@ -524,17 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#252#268#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/browserconfig.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -542,16 +533,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="101">
           <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
         </state>
       </provider>
@@ -563,10 +547,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/images/pic01.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/pic02.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/overlay.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/main.7cface23fe05748e5159.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret column="2917" selection-start-column="2909" selection-end-column="2917" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/libs/_functions.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1771">
+          <caret line="77" column="10" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sass/components/_image.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/main.7cface23fe05748e5159.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="824" column="111" selection-start-line="824" selection-start-column="108" selection-end-line="824" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="993">
+          <caret line="45" column="1522" lean-forward="true" selection-start-line="45" selection-start-column="1522" selection-end-line="45" selection-end-column="1522" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/archive.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/images/archive.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/images/bg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/bg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#252#268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="782">
+          <caret line="34" column="47" lean-forward="true" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1300">
+          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
         </state>
       </provider>
     </entry>
