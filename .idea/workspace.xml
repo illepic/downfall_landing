@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="510ae3f8-3789-4f94-9185-baa8a5f8e367" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +33,7 @@
           <entry key="jpg" value="13" />
           <entry key="js" value="12" />
           <entry key="json" value="3" />
+          <entry key="md" value="1" />
           <entry key="png" value="7" />
           <entry key="scss" value="7" />
           <entry key="svg" value="3" />
@@ -47,6 +48,7 @@
           <entry key="Image" value="20" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="12" />
+          <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="SCSS" value="7" />
           <entry key="SVG" value="3" />
@@ -60,7 +62,7 @@
           <entry key="html" value="2053" />
           <entry key="js" value="1926" />
           <entry key="json" value="357" />
-          <entry key="md" value="1" />
+          <entry key="md" value="272" />
           <entry key="scss" value="259" />
           <entry key="txt" value="182" />
         </counts>
@@ -70,7 +72,7 @@
           <entry key="HTML" value="2053" />
           <entry key="JSON" value="397" />
           <entry key="JavaScript" value="1926" />
-          <entry key="Markdown" value="1" />
+          <entry key="Markdown" value="272" />
           <entry key="PLAIN_TEXT" value="198" />
           <entry key="SCSS" value="259" />
         </counts>
@@ -94,7 +96,7 @@
                 <entry file="file://$PROJECT_DIR$/index.html">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="993">
-                      <caret line="45" column="1522" lean-forward="true" selection-start-line="45" selection-start-column="1522" selection-end-line="45" selection-end-column="1522" />
+                      <caret line="45" column="1522" selection-start-line="45" selection-start-column="1522" selection-end-line="45" selection-end-column="1522" />
                     </state>
                   </provider>
                 </entry>
@@ -112,7 +114,7 @@
                 <entry file="file://$PROJECT_DIR$/.gitignore">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="702">
-                      <caret line="39" column="8" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+                      <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
                     </state>
                   </provider>
                 </entry>
@@ -184,7 +186,7 @@
                 <entry file="file://$PROJECT_DIR$/assets/js/main.js">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="713">
-                      <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+                      <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
                       <folding>
                         <element signature="n#!!doc" expanded="true" />
                         <element signature="e#252#268#0" expanded="true" />
@@ -200,9 +202,21 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="230">
+                    <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="190">
+                <state relative-caret-position="284">
                   <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
                 </state>
               </provider>
@@ -240,7 +254,6 @@
       <list>
         <option value="$PROJECT_DIR$/images/dflogo.svg" />
         <option value="$PROJECT_DIR$/README.txt" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/assets/js/main.js" />
         <option value="$PROJECT_DIR$/assets/sass/main.scss" />
@@ -248,6 +261,7 @@
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -363,12 +377,12 @@
       <option name="presentableId" value="Default" />
       <updated>1538339877992</updated>
       <workItem from="1538339879585" duration="517000" />
-      <workItem from="1538340419850" duration="27762000" />
+      <workItem from="1538340419850" duration="28118000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28279000" />
+    <option name="totallyTimeSpent" value="28635000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-571" width="1920" height="2137" extended-state="0" />
@@ -417,13 +431,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="34" selection-start-line="4" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/main.css">
       <provider selected="true" editor-type-id="text-editor" />
@@ -573,7 +580,7 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="993">
-          <caret line="45" column="1522" lean-forward="true" selection-start-line="45" selection-start-column="1522" selection-end-line="45" selection-end-column="1522" />
+          <caret line="45" column="1522" selection-start-line="45" selection-start-column="1522" selection-end-line="45" selection-end-column="1522" />
         </state>
       </provider>
     </entry>
@@ -592,7 +599,7 @@
     <entry file="file://$PROJECT_DIR$/assets/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="713">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#252#268#0" expanded="true" />
@@ -603,7 +610,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
-          <caret line="39" column="8" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -616,8 +623,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="284">
           <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="34" selection-start-line="4" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="230">
+            <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
