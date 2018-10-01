@@ -21,7 +21,6 @@
 
 <!-- Wrapper -->
 <div id="wrapper">
-
   <!-- Header -->
   <header id="header">
     <div class="logo">
@@ -59,7 +58,7 @@
     <!-- Work -->
     <article id="facebook">
       <h2 class="major">Facebook</h2>
-      <span class="image main"><img src="images/fb.png" alt=""/></span>
+      <span class="image main"><img src="<%= require('./images/fb.png') %>" alt=""/></span>
       <p>Though &lt;Downfall&gt; was raiding before Facebook even existed, these days the &lt;Downfall&gt; Facebook page is quite active.</p>
       <p><a href="https://www.facebook.com/groups/167901269916918/">Join us on Facebook.</a></p>
     </article>
@@ -67,7 +66,7 @@
     <!-- About -->
     <article id="archive">
       <h2 class="major">Archive</h2>
-      <span class="image main"><img src="images/archive.png" alt="Downfall old site header"/></span>
+      <span class="image main"><img src="<%= require('./images/archive.png') %>" alt="Downfall old site header"/></span>
       <p>The old &lt;Downfall&gt; guild forums site is frozen in a non-interactive state. New posts, comments, and user account creation are all disabled. The site is also locked behind an .htaccess login and password.</p>
       <p>Simply ask Garreth for the credentials to access <a href="https://d6.downfallguild.org">the old &lt;Downfall&gt; guild website.</a></p>
     </article>
@@ -99,7 +98,6 @@
         </ul>
       </form>
     </article>
-
   </div>
 
   <!-- Footer -->
@@ -115,10 +113,7 @@
 
 <!-- Scripts -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<!-- Webpack will inject below -->
 
 </body>
 </html>

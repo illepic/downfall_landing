@@ -4,6 +4,12 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+// import './browser.min'; // handled by ProvidePlugin
+// import './breakpoints.min'; // handled by ProvidePlugin
+import './util';
+
+import '../sass/main.scss';
+
 (function ($, browser) {
 
   var $window = $(window),
