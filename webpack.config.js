@@ -1,15 +1,18 @@
 const path = require('path');
 
 const { ProvidePlugin } = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NullPlugin = require('webpack-null-plugin');
 
 const buildPath = path.resolve(__dirname, 'dist');
 
 module.exports = (env, argv) => {
 
   // console.log(env);
-  // console.log(argv);
+  console.log(argv);
+  console.log(argv.mode === 'production');
 
   return {
     entry: './assets/js/main.js',
@@ -29,11 +32,16 @@ module.exports = (env, argv) => {
           },
         },
         {
-          test: /\.scss$/,
+          test: /\.(sa|sc|c)ss$/,
           use: [
-            {
-              loader: "style-loader" // creates style nodes from JS strings
-            },
+            argv.mode === 'production'
+              ? {
+                loader: MiniCssExtractPlugin.loader,
+                options: { publicPath: './' },
+              }
+              : {
+                loader: "style-loader" // creates style nodes from JS strings
+              },
             {
               loader: "css-loader" // translates CSS into CommonJS
             },
@@ -69,6 +77,12 @@ module.exports = (env, argv) => {
         template: './index.html',
         inject: 'body',
       }),
+      argv.mode === 'production'
+        ? new MiniCssExtractPlugin({
+          filename: '[name].styles.css',
+          chunkFilename: '[id].css',
+        })
+        : new NullPlugin(),
     ],
   }
 };
