@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const NullPlugin = require('webpack-null-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const buildPath = path.resolve(__dirname, 'dist');
 
@@ -71,8 +72,21 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      new CleanWebpackPlugin(buildPath),
-      argv.mode === 'production' ?
+      ...[
+        new CleanWebpackPlugin(buildPath),
+        new ProvidePlugin({
+          browser: path.resolve(__dirname, './assets/js/browser.min'),
+          breakpoints: path.resolve(__dirname, './assets/js/breakpoints.min'),
+        }),
+        new HtmlWebpackPlugin({
+          template: './index.html',
+          inject: 'body',
+        }),
+        new CopyWebpackPlugin([
+          { from: './assets/css/noscript.css', to: './', flatten: true },
+        ]),
+      ],
+      ...argv.mode === 'production' ? [
         new FaviconsWebpackPlugin({
           // Your source logo
           logo: './images/dflogo.svg',
@@ -101,19 +115,11 @@ module.exports = (env, argv) => {
             yandex: false,
             windows: false
           }
-        }) : new NullPlugin(),
-      new ProvidePlugin({
-        browser: path.resolve(__dirname, './assets/js/browser.min'),
-        breakpoints: path.resolve(__dirname, './assets/js/breakpoints.min'),
-      }),
-      new HtmlWebpackPlugin({
-        template: './index.html',
-        inject: 'body',
-      }),
-      argv.mode === 'production' ?
+        }),
         new MiniCssExtractPlugin({
           filename: '[name].[hash:20].css',
-        }) : new NullPlugin(),
+        }),
+      ] : [],
     ],
   }
 };
