@@ -54,17 +54,15 @@ module.exports = (env, argv) => {
             {
               loader: 'url-loader',
               options: {
-                // On development we want to see where the file is coming from,
-                // hence we preserve the [path]
-                name: '[path][name].[ext]?hash=[hash:20]',
-                limit: 8192
+                limit: 8192,
+                esModule: false,
               },
             },
             {
               loader: 'image-webpack-loader',
-              options: {
-                bypassOnDebug: argv.mode === 'development'
-              }
+              // options: {
+              //   bypassOnDebug: argv.mode === 'development'
+              // }
             }
           ],
         }
