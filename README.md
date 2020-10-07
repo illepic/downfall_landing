@@ -19,7 +19,7 @@ Based on HTML5 Up Dimension theme.
 
 1. `npm run build`
 1. `npx serve dist/`
-1. Visit [http://localhost:5000/][http://localhost:5000/]
+1. Visit [http://localhost:5000/](http://localhost:5000/)
 
 ## Push to production
 
