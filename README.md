@@ -6,15 +6,21 @@ Based on HTML5 Up Dimension theme.
 
 ## Installation
 
-1. Node 10+/NPM 6+
+1. Node 12+/NPM 6+
 1. Clone this repo, `cd` into local folder
 1. `npm install`
 
 ## Local dev
 
 1. `npm start`
-1. Visit [http://localhost:8080/](http://localhost:8080/)
+1. Visit [http://localhost:1234/](http://localhost:1234/)
+
+## Build and serve build
+
+1. `npm run build`
+1. `npx serve dist/`
+1. Visit [http://localhost:5000/][http://localhost:5000/]
 
 ## Push to production
 
-1. From local root of project: `npm run build && rsync -azP --delete dist/ [username]@[remote]:[app-directory/]`
+1. Deploys to Netlify on every push to `master`

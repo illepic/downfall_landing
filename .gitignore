@@ -65,3 +65,6 @@ dist
 
 # jetbrains
 .idea
+
+# parcel
+.cache
