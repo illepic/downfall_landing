@@ -5,7 +5,8 @@
   "main": "src/main.js",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "rm -rf dist/ && parcel build src/index.html",
+    "build": "rm -rf dist/ && NODE_ENV=production parcel build src/index.html",
+    "serve": "npm run build && serve dist/",
     "fmt": "prettier --write ."
   },
   "author": "Christopher Bloom",
@@ -14,7 +15,11 @@
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-imagemin": "^4.0.1",
     "prettier": "^2.1.2",
-    "sass": "^1.26.12"
+    "sass": "^1.26.12",
+    "serve": "^11.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "alpinejs": "^2.7.0",
+    "tailwindcss": "^1.8.12"
+  }
 }
