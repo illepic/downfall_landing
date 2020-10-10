@@ -18,19 +18,34 @@
     />
     <!-- <link rel="stylesheet" href="./sass/main.scss" /> -->
     <link rel="stylesheet" href="./css/main.css" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
   </head>
   <body
-    class="is-preload background text-lg uppercase font-light leading-loose bg-cover bg-center bg-no-repeat text-white tracking-widest h-screen text-center"
+    class="is-preload background text-lg uppercase font-light leading-loose text-white tracking-widest text-center md:h-screen"
     x-data="dfState()"
     x-init="dfInit"
     :class="{ 'is-preload': isPreload }"
   >
+    <!-- Background -->
     <div
-      class="wrapper container mx-auto h-screen flex flex-col justify-around"
+      class="background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 z-0"
+    ></div>
+    <!-- Fade-out overlay -->
+    <div
+      class="block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black z-10 transition-opacity ease-in-out duration-3000 delay-700"
+      :class="{ 'opacity-100': isPreload, 'opacity-0': !isPreload }"
+    ></div>
+
+    <div
+      class="wrapper relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20"
     >
-      <header class="header flex flex-col items-center">
+      <header id="intro" class="header flex flex-col items-center">
+        <!-- Logo -->
         <div
-          class="logo w-32 h-32 rounded-full border-solid border-white border p-5"
+          class="logo w-24 h-24 sm:w-32 sm:h-32 rounded-full border-solid border-white border p-5 mt-4"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,41 +74,69 @@
         </div>
         <div class="line w-px h-16 bg-white"></div>
         <!-- Content -->
-        <div
-          class="content border-solid border-white border-t border-b py-12 px-12"
-        >
-          <h1 class="text-5xl font-semibold">Thank you, &lt;Downfall&gt;</h1>
-          <h1 x-text="activeTab"></h1>
-          <p>
-            The website for the World of Warcraft guild &lt;Downfall&gt; will be
-            hibernating for awhile. It has been a joy and honor to host our
-            original out-of-game collaboration space since Vanilla. Below are
-            links to the current &lt;Downfall&gt; online communities. Join us!
-            <br />- Garreth
-          </p>
-        </div>
-        <div class="line w-px h-16 bg-white"></div>
-        <nav class="nav">
-          <ul
-            class="flex border-solid border-white border rounded divide-x divide-white"
+        <div class="border-solid border-white border-t border-b">
+          <!-- Grow/collapse this -->
+          <div
+            x-ref="expando"
+            class="max-h-0 overflow-hidden transition-all ease-in-out duration-1000 delay-2000"
+            x-bind:style="animateHeight()"
           >
-            <li class="w-40">
-              <a class="block py-3 hover:bg-white hover:bg-opacity-25" href="#discord">Discord</a>
+            <div class="p-12">
+              <h1 class="text-2xl sm:text-5xl font-semibold">
+                Thank you, &lt;Downfall&gt;
+              </h1>
+              <!-- Debugging for now -->
+              <h1 x-text="activeTab"></h1>
+              <p>
+                The website for the World of Warcraft guild &lt;Downfall&gt;
+                will be hibernating for awhile. It has been a joy and honor to
+                host our original out-of-game collaboration space since Vanilla.
+                Below are links to the current &lt;Downfall&gt; online
+                communities. Join us!
+                <br />- Garreth
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="line w-px h-16 bg-white"></div>
+        <nav class="nav px-8 w-full md:w-auto">
+          <ul
+            class="md:flex border-solid border-white border rounded divide-y md:divide-x md:divide-y-0 divide-white"
+          >
+            <li class="md:w-40">
+              <a
+                class="block py-3 hover:bg-white hover:bg-opacity-25"
+                href="#discord"
+                >Discord</a
+              >
             </li>
-            <li class="w-40">
-              <a class="block py-3 hover:bg-white hover:bg-opacity-25" href="#facebook">Facebook</a>
+            <li class="md:w-40">
+              <a
+                class="block py-3 hover:bg-white hover:bg-opacity-25"
+                href="#facebook"
+                >Facebook</a
+              >
             </li>
-            <li class="w-40">
-              <a class="block py-3 hover:bg-white hover:bg-opacity-25" href="#archive">Archive</a>
+            <li class="md:w-40">
+              <a
+                class="block py-3 hover:bg-white hover:bg-opacity-25"
+                href="#archive"
+                >Archive</a
+              >
             </li>
-            <li class="w-40">
-              <a class="block py-3 hover:bg-white hover:bg-opacity-25" href="#contact">Contact</a>
+            <li class="md:w-40">
+              <a
+                class="block py-3 hover:bg-white hover:bg-opacity-25"
+                href="#contact"
+                >Contact</a
+              >
             </li>
           </ul>
         </nav>
       </header>
 
-      <div id="main" class="hidden">
+      <main id="info" class="sr-only">
         <!-- Discord -->
         <article id="discord">
           <h2 class="major">Discord</h2>
@@ -198,9 +241,9 @@
             </ul>
           </form>
         </article>
-      </div>
+      </main>
 
-      <footer class="footer mt-8 text-base opacity-75">
+      <footer class="footer mt-8 mb-4 text-base opacity-75">
         <p class="copyright">
           &copy; &lt;Downfall&gt; | Design:
           <a href="https://html5up.net">HTML5 UP</a>
@@ -209,14 +252,6 @@
       </footer>
     </div>
 
-    <!-- Scripts -->
-    <!-- <script
-      src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-      crossorigin="anonymous"
-    ></script> -->
-    <!-- <script src="./js/breakpoints.min.js"></script> -->
-    <!-- <script src="./js/main.js"></script> -->
     <script src="./js/main-new.js"></script>
 
     <script></script>

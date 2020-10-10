@@ -7,10 +7,17 @@ module.exports = {
   theme: {
     colors: {
       white: "#fff",
+      black: "#000",
     },
     extend: {
       fontFamily: {
         sans: "Source Sans Pro",
+      },
+      transitionDuration: {
+        3000: "3000ms",
+      },
+      maxHeight: {
+        0: "0",
       },
     },
   },
