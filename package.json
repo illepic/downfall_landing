@@ -7,11 +7,18 @@
     "start": "parcel src/index.html",
     "build": "rm -rf dist/ && NODE_ENV=production parcel build src/index.html",
     "serve": "npm run build && serve dist/",
-    "fmt": "prettier --write ."
+    "fmt": "eslint src/**/*.js --fix && prettier --write ."
   },
   "author": "Christopher Bloom",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-imagemin": "^4.0.1",
     "prettier": "^2.1.2",

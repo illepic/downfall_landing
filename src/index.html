@@ -9,8 +9,9 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="./static/images/dflogo.svg" />
-    <noscript>
-      <link rel="stylesheet" href="./sass/noscript.scss" />
+    <noscript
+      ><!-- Return for basic no-script style -->
+      <!-- <link rel="stylesheet" href="./sass/noscript.scss" /> -->
     </noscript>
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap"
@@ -40,9 +41,13 @@
     ></div>
 
     <div
-      class="wrapper relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20"
+      class="relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20"
     >
-      <header id="intro" class="header flex flex-col items-center">
+      <header
+        id="intro"
+        class="header flex flex-col items-center transition-all ease-in-out duration-1000 opacity-0"
+        :class="{'opacity-100': !isPreload }"
+      >
         <!-- Logo -->
         <div
           class="logo w-24 h-24 sm:w-32 sm:h-32 rounded-full border-solid border-white border p-5 mt-4"
@@ -78,8 +83,8 @@
           <!-- Grow/collapse this -->
           <div
             x-ref="expando"
-            class="max-h-0 overflow-hidden transition-all ease-in-out duration-1000 delay-2000"
-            x-bind:style="animateHeight()"
+            class="max-h-0 overflow-hidden duration-1000 delay-200"
+            :style="animateHeight()"
           >
             <div class="p-12">
               <h1 class="text-2xl sm:text-5xl font-semibold">
@@ -136,9 +141,15 @@
         </nav>
       </header>
 
-      <main id="info" class="sr-only">
+      <main
+        id="info"
+        class="relative text-left"
+        x-show="activeTab !== ''"
+        x-cloak
+        @click.away="location.hash = '#'"
+      >
         <!-- Discord -->
-        <article id="discord">
+        <article id="discord" x-show="activeTab === '#discord'">
           <h2 class="major">Discord</h2>
           <span class="image main">
             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 272.1">
@@ -165,7 +176,7 @@
         </article>
 
         <!-- Facebook -->
-        <article id="facebook">
+        <article id="facebook" x-show="activeTab === '#facebook'">
           <h2 class="major">Facebook</h2>
           <span class="image main">
             <img src="./static/images/fb.webp" alt="Facebook logo" />
@@ -182,7 +193,7 @@
         </article>
 
         <!-- Archive -->
-        <article id="archive">
+        <article id="archive" x-show="activeTab === '#archive'">
           <h2 class="major">Archive</h2>
           <span class="image main">
             <img
@@ -205,7 +216,7 @@
         </article>
 
         <!-- Contact -->
-        <article id="contact">
+        <article id="contact" x-show="activeTab == '#contact'">
           <h2 class="major">Contact</h2>
           <p>Coming soon™</p>
           <form method="post" action="#">
@@ -241,18 +252,42 @@
             </ul>
           </form>
         </article>
+
+        <!-- Single close button -->
+        <button
+          class="absolute top-0 right-0 w-12 h-12 p-1 rounded-full hover:bg-white hover:bg-opacity-25"
+          @click="location.hash = '#'"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewbox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
       </main>
 
-      <footer class="footer mt-8 mb-4 text-base opacity-75">
+      <footer
+        class="footer mt-8 mb-4 text-base opacity-75"
+        x-show="activeTab === ''"
+      >
         <p class="copyright">
           &copy; &lt;Downfall&gt; | Design:
           <a href="https://html5up.net">HTML5 UP</a>
-          and <a href="https://github.com/illepic/downfall_landing">Garreth</a>.
+          and
+          <a href="https://github.com/illepic/downfall_landing">Garreth</a>.
         </p>
       </footer>
     </div>
 
-    <script src="./js/main-new.js"></script>
+    <script src="./js/main.js"></script>
 
     <script></script>
   </body>

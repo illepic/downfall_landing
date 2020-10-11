@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] {
+  @apply hidden;
+}
+
 .background {
   background-image: linear-gradient(
       90deg,
@@ -11,19 +15,4 @@
       rgba(0, 0, 0, 0.5) 100%
     ),
     url("../static/images/bg.webp");
-}
-
-.grow {
-  transition: max-height 0.75s ease, padding 0.75s ease,
-    opacity 0.325s ease-in-out;
-  transition-delay: 0.25s;
-  max-height: 40rem;
-  opacity: 1;
-}
-
-.is-preload .grow {
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  opacity: 0;
 }

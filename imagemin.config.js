@@ -6,4 +6,4 @@ module.exports = {
     plugins: [{ removeViewBox: false }, { cleanupIDs: true }],
   },
   webp: { quality: 100 },
-};
+}
