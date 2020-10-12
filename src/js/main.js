@@ -2,30 +2,32 @@
  * Note: AlpineJS is added via script in <head>, as per recommendation
  */
 
-window.dfState = function () {
+window.dfState = function dfState() {
   return {
     isPreload: true,
-    activeTab: location.hash,
-    lastTab: location.hash,
+    activeTab: window.location.hash,
+    lastTab: window.location.hash,
     contact: {
       name: "",
       email: "",
       message: "",
     },
     dfInit() {
-      setTimeout(() => (this.isPreload = false), 100)
+      setTimeout(() => {
+        this.isPreload = false;
+      }, 100);
       window.addEventListener("hashchange", () => {
-        this.activeTab = location.hash
+        this.activeTab = window.location.hash;
         // Leave a "residual" tab for the overlay content to not disappear
-        if (location.hash) {
-          this.lastTab = location.hash
+        if (window.location.hash) {
+          this.lastTab = window.location.hash;
         }
-      })
+      });
     },
     animateHeight() {
       return this.isPreload && this.activeTab !== ""
         ? false
-        : `max-height: ${this.$refs.expando.scrollHeight}px`
+        : `max-height: ${this.$refs.expando.scrollHeight}px`;
     },
-  }
-}
+  };
+};

@@ -1,0 +1,18 @@
+.df-bg-overlay {
+  @apply opacity-0;
+}
+.df-intro {
+  @apply opacity-100;
+}
+.df-expando {
+  @apply max-h-full;
+}
+.df-info {
+  @apply static block;
+}
+.df-info__wrapper {
+  @apply mx-auto;
+}
+.df-info__article {
+  @apply mb-8;
+}

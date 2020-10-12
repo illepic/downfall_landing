@@ -4,21 +4,23 @@
     <title>&lt;Downfall&gt; Guild. Droppin' bombs since 2004.</title>
     <meta charset="utf-8" />
     <meta
-      name="Description"
+      name="description"
       content="The landing page for Downfall, a World of Warcraft guild"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <link rel="icon" type="image/svg+xml" href="./static/images/dflogo.svg" />
-    <noscript
-      ><!-- Return for basic no-script style -->
-      <!-- <link rel="stylesheet" href="./sass/noscript.scss" /> -->
-    </noscript>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" href="./sass/main.scss" /> -->
     <link rel="stylesheet" href="./css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="./css/main-noscript.css" />
+    </noscript>
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
@@ -31,20 +33,20 @@
   >
     <!-- Background -->
     <div
-      class="background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 z-0 transistion-all ease-in-out duration-500 scale-110"
+      class="df-bg background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 z-0 transistion-all ease-in-out duration-500 scale-110"
       :class="{ 'blur-zoom': activeTab !== '' }"
     ></div>
     <!-- Fade-out overlay -->
     <div
-      class="block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black z-10 transition-opacity ease-in-out duration-3000 delay-700 opacity-100"
+      class="df-bg-overlay block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black z-10 transition-opacity ease-in-out duration-3000 delay-700 opacity-100"
       :class="{ 'dark-fade': !isPreload }"
     ></div>
 
     <div
-      class="relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20 transition-opacity ease-in-out duration-1000 opacity-0"
-      :class="{'opacity-100': !isPreload && activeTab === '' }"
+      class="df-intro relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20 transition-opacity ease-in-out opacity-0"
+      :class="{'duration-1000 opacity-100': !isPreload && activeTab === '' }"
     >
-      <header id="intro" class="header flex flex-col items-center">
+      <header class="header flex flex-col items-center">
         <!-- Logo -->
         <div
           class="logo w-24 h-24 sm:w-32 sm:h-32 rounded-full border-solid border p-5 mt-4"
@@ -80,7 +82,7 @@
           <!-- Grow/collapse this -->
           <div
             x-ref="expando"
-            class="max-h-0 overflow-hidden transition-max-height duration-1000 delay-200"
+            class="df-expando max-h-0 overflow-hidden transition-max-height duration-1000 delay-200"
             :style="animateHeight()"
           >
             <div class="px-12 pb-10 pt-8">
@@ -156,10 +158,9 @@
 
     <!-- Fixed position content area -->
     <main
-      id="info"
-      class="fixed flex items-center justify-center inset-0 z-30 transition ease-in-out"
+      class="df-info fixed flex items-center justify-center inset-0 z-30 transition ease-in-out"
       role="dialog"
-      x-show="activeTab !== ''"
+      x-show="!isPreload && activeTab !== ''"
       x-transition:enter="duration-700 delay-500"
       x-transition:enter-start="opacity-0"
       x-transition:enter-end="opacity-100"
@@ -169,11 +170,15 @@
       x-cloak
     >
       <div
-        class="max-w-4xl text-left pt-20 pb-12 px-10 bg-grey-dark bg-opacity-75 rounded-md normal-case tracking-wide relative"
+        class="df-info__wrapper max-w-4xl text-left pt-20 pb-12 px-10 bg-grey-dark bg-opacity-75 rounded-md normal-case tracking-wide relative"
         @click.away="location.hash = '#'"
       >
         <!-- Discord -->
-        <article id="discord" x-show="lastTab === '#discord'">
+        <article
+          class="df-info__article"
+          id="discord"
+          x-show="lastTab === '#discord'"
+        >
           <h2
             class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
           >
@@ -211,7 +216,11 @@
         </article>
 
         <!-- Facebook -->
-        <article id="facebook" x-show="lastTab === '#facebook'">
+        <article
+          class="df-info__article"
+          id="facebook"
+          x-show="lastTab === '#facebook'"
+        >
           <h2
             class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
           >
@@ -239,7 +248,11 @@
         </article>
 
         <!-- Archive -->
-        <article id="archive" x-show="lastTab === '#archive'">
+        <article
+          class="df-info__article"
+          id="archive"
+          x-show="lastTab === '#archive'"
+        >
           <h2
             class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
           >
@@ -270,7 +283,12 @@
         </article>
 
         <!-- Contact -->
-        <article id="contact" x-show="lastTab == '#contact'" class="w-full">
+        <article
+          class="df-info__article"
+          id="contact"
+          x-show="lastTab == '#contact'"
+          class="w-full"
+        >
           <h2
             class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
           >
