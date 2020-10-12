@@ -1,6 +1,6 @@
 # Downfall landing page
 
-"Temporary" page set up to direct users to other Downfall communities while the site is "in development".
+"Temporary" page set up to direct users to other Downfall communities while the site is "in development". Building using Parcel, Tailwind, AlpineJS.
 
 Based on HTML5 Up Dimension theme.
 
@@ -15,10 +15,13 @@ Based on HTML5 Up Dimension theme.
 1. `npm start`
 1. Visit [http://localhost:1234/](http://localhost:1234/)
 
-## Build and serve build
+## Build
 
 1. `npm run build`
-1. `npx serve dist/`
+
+## Build and Serve
+
+1. `npm run serve`
 1. Visit [http://localhost:5000/](http://localhost:5000/)
 
 ## Push to production
