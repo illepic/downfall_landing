@@ -16,3 +16,6 @@
     ),
     url("../static/images/bg.webp");
 }
+.blur-zoom {
+  filter: blur(0.25rem);
+}

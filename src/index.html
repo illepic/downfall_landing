@@ -25,14 +25,14 @@
     ></script>
   </head>
   <body
-    class="is-preload background text-lg uppercase font-light leading-loose text-white tracking-widest text-center md:h-screen"
+    class="bg-black text-lg uppercase font-light leading-loose text-white tracking-widest text-center md:h-screen border-white"
     x-data="dfState()"
     x-init="dfInit"
-    :class="{ 'is-preload': isPreload }"
   >
     <!-- Background -->
     <div
-      class="background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 z-0"
+      class="background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 z-0 transistion-all ease-in-out duration-500"
+      :class="{ 'scale-100': activeTab !== '', 'scale-110': activeTab === '', 'blur-zoom': activeTab !== '' }"
     ></div>
     <!-- Fade-out overlay -->
     <div
@@ -41,16 +41,13 @@
     ></div>
 
     <div
-      class="relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20"
+      class="relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20 transition-all ease-in-out duration-1000 opacity-0"
+      :class="{'opacity-100': !isPreload && activeTab === '' }"
     >
-      <header
-        id="intro"
-        class="header flex flex-col items-center transition-all ease-in-out duration-1000 opacity-0"
-        :class="{'opacity-100': !isPreload }"
-      >
+      <header id="intro" class="header flex flex-col items-center">
         <!-- Logo -->
         <div
-          class="logo w-24 h-24 sm:w-32 sm:h-32 rounded-full border-solid border-white border p-5 mt-4"
+          class="logo w-24 h-24 sm:w-32 sm:h-32 rounded-full border-solid border p-5 mt-4"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +76,7 @@
         </div>
         <div class="line w-px h-16 bg-white"></div>
         <!-- Content -->
-        <div class="border-solid border-white border-t border-b">
+        <div class="border-solid border-t border-b">
           <!-- Grow/collapse this -->
           <div
             x-ref="expando"
@@ -90,8 +87,6 @@
               <h1 class="text-2xl sm:text-5xl font-semibold">
                 Thank you, &lt;Downfall&gt;
               </h1>
-              <!-- Debugging for now -->
-              <h1 x-text="activeTab"></h1>
               <p>
                 The website for the World of Warcraft guild &lt;Downfall&gt;
                 will be hibernating for awhile. It has been a joy and honor to
@@ -107,7 +102,7 @@
         <div class="line w-px h-16 bg-white"></div>
         <nav class="nav px-8 w-full md:w-auto">
           <ul
-            class="md:flex border-solid border-white border rounded divide-y md:divide-x md:divide-y-0 divide-white"
+            class="md:flex border-solid border rounded divide-y md:divide-x md:divide-y-0 divide-white"
           >
             <li class="md:w-40">
               <a
@@ -141,66 +136,113 @@
         </nav>
       </header>
 
-      <main
-        id="info"
-        class="relative text-left"
-        x-show="activeTab !== ''"
-        x-cloak
+      <footer class="footer mt-8 mb-4 text-base opacity-75">
+        <p class="copyright">
+          &copy; &lt;Downfall&gt; | Design:
+          <a href="https://html5up.net">HTML5 UP</a>
+          and
+          <a href="https://github.com/illepic/downfall_landing">Garreth</a>.
+        </p>
+      </footer>
+    </div>
+
+    <main
+      id="info"
+      class="fixed flex items-center justify-center inset-0 z-30 transition ease-in-out"
+      role="dialog"
+      x-show="activeTab !== ''"
+      x-transition:enter="duration-700 delay-500"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="duration-300"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      x-cloak
+    >
+      <div
+        class="max-w-4xl text-left pt-20 pb-12 px-10 bg-grey-dark bg-opacity-75 rounded-md normal-case tracking-wide relative"
         @click.away="location.hash = '#'"
       >
         <!-- Discord -->
-        <article id="discord" x-show="activeTab === '#discord'">
-          <h2 class="major">Discord</h2>
-          <span class="image main">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 272.1">
-              <path
-                class="st0"
-                d="M142.8 120.1c-5.7 0-10.2 4.9-10.2 11s4.6 11 10.2 11c5.7 0 10.2-4.9 10.2-11s-4.6-11-10.2-11zM106.3 120.1c-5.7 0-10.2 4.9-10.2 11s4.6 11 10.2 11c5.7 0 10.2-4.9 10.2-11 .1-6.1-4.5-11-10.2-11z"
-              />
-              <path
-                class="st0"
-                d="M191.4 36.9h-134c-11.3 0-20.5 9.2-20.5 20.5v134c0 11.3 9.2 20.5 20.5 20.5h113.4l-5.3-18.3 12.8 11.8 12.1 11.1 21.6 18.7V57.4c-.1-11.3-9.3-20.5-20.6-20.5zm-38.6 129.5s-3.6-4.3-6.6-8c13.1-3.7 18.1-11.8 18.1-11.8-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.4-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.6-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.2-1.8-1-2.8-1.7-2.8-1.7s4.8 7.9 17.5 11.7c-3 3.8-6.7 8.2-6.7 8.2-22.1-.7-30.5-15.1-30.5-15.1 0-31.9 14.4-57.8 14.4-57.8 14.4-10.7 28-10.4 28-10.4l1 1.2c-18 5.1-26.2 13-26.2 13s2.2-1.2 5.9-2.8c10.7-4.7 19.2-5.9 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.5 0 0-7.9-7.5-24.9-12.6l1.4-1.6s13.7-.3 28 10.4c0 0 14.4 25.9 14.4 57.8 0-.1-8.4 14.3-30.5 15zM303.8 79.7h-33.2V117l22.1 19.9v-36.2h11.8c7.5 0 11.2 3.6 11.2 9.4v27.7c0 5.8-3.5 9.7-11.2 9.7h-34v21.1h33.2c17.8.1 34.5-8.8 34.5-29.2v-29.8c.1-20.8-16.6-29.9-34.4-29.9zm174 59.7v-30.6c0-11 19.8-13.5 25.8-2.5l18.3-7.4c-7.2-15.8-20.3-20.4-31.2-20.4-17.8 0-35.4 10.3-35.4 30.3v30.6c0 20.2 17.6 30.3 35 30.3 11.2 0 24.6-5.5 32-19.9l-19.6-9c-4.8 12.3-24.9 9.3-24.9-1.4zM417.3 113c-6.9-1.5-11.5-4-11.8-8.3.4-10.3 16.3-10.7 25.6-.8l14.7-11.3c-9.2-11.2-19.6-14.2-30.3-14.2-16.3 0-32.1 9.2-32.1 26.6 0 16.9 13 26 27.3 28.2 7.3 1 15.4 3.9 15.2 8.9-.6 9.5-20.2 9-29.1-1.8l-14.2 13.3c8.3 10.7 19.6 16.1 30.2 16.1 16.3 0 34.4-9.4 35.1-26.6 1-21.7-14.8-27.2-30.6-30.1zm-67 55.5h22.4V79.7h-22.4v88.8zM728 79.7h-33.2V117l22.1 19.9v-36.2h11.8c7.5 0 11.2 3.6 11.2 9.4v27.7c0 5.8-3.5 9.7-11.2 9.7h-34v21.1H728c17.8.1 34.5-8.8 34.5-29.2v-29.8c0-20.8-16.7-29.9-34.5-29.9zm-162.9-1.2c-18.4 0-36.7 10-36.7 30.5v30.3c0 20.3 18.4 30.5 36.9 30.5 18.4 0 36.7-10.2 36.7-30.5V109c0-20.4-18.5-30.5-36.9-30.5zm14.4 60.8c0 6.4-7.2 9.7-14.3 9.7-7.2 0-14.4-3.1-14.4-9.7V109c0-6.5 7-10 14-10 7.3 0 14.7 3.1 14.7 10v30.3zM682.4 109c-.5-20.8-14.7-29.2-33-29.2h-35.5v88.8h22.7v-28.2h4l20.6 28.2h28L665 138.1c10.7-3.4 17.4-12.7 17.4-29.1zm-32.6 12h-13.2v-20.3h13.2c14.1 0 14.1 20.3 0 20.3z"
-              />
-            </svg>
-          </span>
-          <p>
+        <article id="discord" x-show="lastTab === '#discord'">
+          <h2
+            class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
+          >
+            Discord
+          </h2>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewbox="0 0 800 272.1"
+            class="fill-current my-10 bg-grey-darker"
+          >
+            <title>Discord logo</title>
+            <path
+              class="st0"
+              d="M142.8 120.1c-5.7 0-10.2 4.9-10.2 11s4.6 11 10.2 11c5.7 0 10.2-4.9 10.2-11s-4.6-11-10.2-11zM106.3 120.1c-5.7 0-10.2 4.9-10.2 11s4.6 11 10.2 11c5.7 0 10.2-4.9 10.2-11 .1-6.1-4.5-11-10.2-11z"
+            />
+            <path
+              class="st0"
+              d="M191.4 36.9h-134c-11.3 0-20.5 9.2-20.5 20.5v134c0 11.3 9.2 20.5 20.5 20.5h113.4l-5.3-18.3 12.8 11.8 12.1 11.1 21.6 18.7V57.4c-.1-11.3-9.3-20.5-20.6-20.5zm-38.6 129.5s-3.6-4.3-6.6-8c13.1-3.7 18.1-11.8 18.1-11.8-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.4-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.6-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.2-1.8-1-2.8-1.7-2.8-1.7s4.8 7.9 17.5 11.7c-3 3.8-6.7 8.2-6.7 8.2-22.1-.7-30.5-15.1-30.5-15.1 0-31.9 14.4-57.8 14.4-57.8 14.4-10.7 28-10.4 28-10.4l1 1.2c-18 5.1-26.2 13-26.2 13s2.2-1.2 5.9-2.8c10.7-4.7 19.2-5.9 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.5 0 0-7.9-7.5-24.9-12.6l1.4-1.6s13.7-.3 28 10.4c0 0 14.4 25.9 14.4 57.8 0-.1-8.4 14.3-30.5 15zM303.8 79.7h-33.2V117l22.1 19.9v-36.2h11.8c7.5 0 11.2 3.6 11.2 9.4v27.7c0 5.8-3.5 9.7-11.2 9.7h-34v21.1h33.2c17.8.1 34.5-8.8 34.5-29.2v-29.8c.1-20.8-16.6-29.9-34.4-29.9zm174 59.7v-30.6c0-11 19.8-13.5 25.8-2.5l18.3-7.4c-7.2-15.8-20.3-20.4-31.2-20.4-17.8 0-35.4 10.3-35.4 30.3v30.6c0 20.2 17.6 30.3 35 30.3 11.2 0 24.6-5.5 32-19.9l-19.6-9c-4.8 12.3-24.9 9.3-24.9-1.4zM417.3 113c-6.9-1.5-11.5-4-11.8-8.3.4-10.3 16.3-10.7 25.6-.8l14.7-11.3c-9.2-11.2-19.6-14.2-30.3-14.2-16.3 0-32.1 9.2-32.1 26.6 0 16.9 13 26 27.3 28.2 7.3 1 15.4 3.9 15.2 8.9-.6 9.5-20.2 9-29.1-1.8l-14.2 13.3c8.3 10.7 19.6 16.1 30.2 16.1 16.3 0 34.4-9.4 35.1-26.6 1-21.7-14.8-27.2-30.6-30.1zm-67 55.5h22.4V79.7h-22.4v88.8zM728 79.7h-33.2V117l22.1 19.9v-36.2h11.8c7.5 0 11.2 3.6 11.2 9.4v27.7c0 5.8-3.5 9.7-11.2 9.7h-34v21.1H728c17.8.1 34.5-8.8 34.5-29.2v-29.8c0-20.8-16.7-29.9-34.5-29.9zm-162.9-1.2c-18.4 0-36.7 10-36.7 30.5v30.3c0 20.3 18.4 30.5 36.9 30.5 18.4 0 36.7-10.2 36.7-30.5V109c0-20.4-18.5-30.5-36.9-30.5zm14.4 60.8c0 6.4-7.2 9.7-14.3 9.7-7.2 0-14.4-3.1-14.4-9.7V109c0-6.5 7-10 14-10 7.3 0 14.7 3.1 14.7 10v30.3zM682.4 109c-.5-20.8-14.7-29.2-33-29.2h-35.5v88.8h22.7v-28.2h4l20.6 28.2h28L665 138.1c10.7-3.4 17.4-12.7 17.4-29.1zm-32.6 12h-13.2v-20.3h13.2c14.1 0 14.1 20.3 0 20.3z"
+            />
+          </svg>
+
+          <p class="mb-8">
             Downfall has moved mainly to Discord for both in-game voice chat and
             out-of-game collaboration. Discord is free and runs in both a
             browser and an app.
           </p>
-          <p>
-            <a href="https://discord.gg/hXe9rF3">
-              Join the &lt;Downfall&gt; Discord here
-            </a>
-          </p>
+
+          <a
+            href="https://discord.gg/hXe9rF3"
+            class="transition-all ease-in-out duration-200 border-dotted border-b hover:border-transparent"
+          >
+            Join the &lt;Downfall&gt; Discord here
+          </a>
         </article>
 
         <!-- Facebook -->
-        <article id="facebook" x-show="activeTab === '#facebook'">
-          <h2 class="major">Facebook</h2>
-          <span class="image main">
-            <img src="./static/images/fb.webp" alt="Facebook logo" />
-          </span>
-          <p>
+        <article id="facebook" x-show="lastTab === '#facebook'">
+          <h2
+            class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
+          >
+            Facebook
+          </h2>
+
+          <img
+            src="./static/images/fb.webp"
+            alt="Facebook logo"
+            class="my-10 bg-grey-darker"
+          />
+
+          <p class="mb-8">
             Though &lt;Downfall&gt; was raiding before Facebook even existed,
             these days the &lt;Downfall&gt; Facebook page is quite active.
           </p>
           <p>
-            <a href="https://www.facebook.com/groups/167901269916918/">
+            <a
+              href="https://www.facebook.com/groups/167901269916918/"
+              class="transition-all ease-in-out duration-200 border-dotted border-b hover:border-transparent"
+            >
               Join us on Facebook.
             </a>
           </p>
         </article>
 
         <!-- Archive -->
-        <article id="archive" x-show="activeTab === '#archive'">
-          <h2 class="major">Archive</h2>
-          <span class="image main">
-            <img
-              src="./static/images/archive.png"
-              alt="Downfall old site header"
-            />
-          </span>
+        <article id="archive" x-show="lastTab === '#archive'">
+          <h2
+            class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
+          >
+            Archive
+          </h2>
+
+          <img
+            src="./static/images/archive.png"
+            alt="Downfall old site header"
+            class="my-10 bg-grey-darker"
+          />
+
           <p>
             The old &lt;Downfall&gt; guild forums site is frozen in a
             non-interactive state. New posts, comments, and user account
@@ -216,46 +258,75 @@
         </article>
 
         <!-- Contact -->
-        <article id="contact" x-show="activeTab == '#contact'">
-          <h2 class="major">Contact</h2>
-          <p>Coming soon™</p>
-          <form method="post" action="#">
-            <div class="fields">
-              <div class="field half">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" disabled />
-              </div>
-              <div class="field half">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" disabled />
-              </div>
-              <div class="field">
-                <label for="message">Message</label>
-                <textarea
-                  name="message"
-                  id="message"
-                  rows="4"
-                  disabled
-                ></textarea>
-              </div>
-            </div>
-            <ul class="actions">
-              <li>
+        <article id="contact" x-show="lastTab == '#contact'" class="w-full">
+          <h2
+            class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
+          >
+            Contact
+          </h2>
+
+          <form class="my-10" netify>
+            <p class="mb-8">
+              Keep in touch! If you're looking to get ahold of old guildies, try
+              the Discord or Facebook links. If those don't work, contact
+              Garreth here.
+            </p>
+
+            <div class="flex">
+              <label class="block px-4 w-1/2">
+                <span for="name">Name</span>
                 <input
-                  type="submit"
-                  value="Send Message"
-                  class="primary"
-                  disabled
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="form-input mt-2 block w-full"
+                  x-model="contact.name"
                 />
-              </li>
-              <li><input type="reset" value="Reset" /></li>
-            </ul>
+              </label>
+              <label class="block px-4 w-1/2">
+                <span for="email">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-input mt-2 block w-full"
+                  x-model="contact.email"
+                />
+              </label>
+            </div>
+
+            <label class="block px-4 mt-4">
+              <span for="message">Message</span>
+              <textarea
+                name="message"
+                id="message"
+                rows="3"
+                class="form-textarea mt-2 block w-full"
+                x-model="contact.message"
+              ></textarea>
+            </label>
+
+            <div class="px-4 mt-4 text-grey-darker">
+              <input
+                type="submit"
+                value="Send Message"
+                class="cursor-pointer uppercase font-semibold border-white bg-white border-solid border rounded p-3 disabled:opacity-25"
+                :disabled="!contact.name && !contact.email && !contact.message"
+              />
+              <input
+                type="reset"
+                value="Reset"
+                class="cursor-pointer uppercase font-semibold border-white bg-white border-solid border rounded p-3"
+                @click="contact = { name: '', email: '', message: '' }"
+              />
+            </div>
           </form>
         </article>
 
         <!-- Single close button -->
         <button
-          class="absolute top-0 right-0 w-12 h-12 p-1 rounded-full hover:bg-white hover:bg-opacity-25"
+          class="absolute top-1 right-1 w-12 h-12 p-1 rounded-full hover:bg-white hover:bg-opacity-25"
+          aria-label="close"
           @click="location.hash = '#'"
         >
           <svg
@@ -272,20 +343,8 @@
             />
           </svg>
         </button>
-      </main>
-
-      <footer
-        class="footer mt-8 mb-4 text-base opacity-75"
-        x-show="activeTab === ''"
-      >
-        <p class="copyright">
-          &copy; &lt;Downfall&gt; | Design:
-          <a href="https://html5up.net">HTML5 UP</a>
-          and
-          <a href="https://github.com/illepic/downfall_landing">Garreth</a>.
-        </p>
-      </footer>
-    </div>
+      </div>
+    </main>
 
     <script src="./js/main.js"></script>
 

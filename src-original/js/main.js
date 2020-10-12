@@ -7,7 +7,6 @@
 // import './browser.min'; // handled by ProvidePlugin
 // import './breakpoints.min'; // handled by ProvidePlugin
 import "./util"
-
 ;(function ($) {
   var $window = $(window)
   var $body = $("body")
