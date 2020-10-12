@@ -265,7 +265,7 @@
             Contact
           </h2>
 
-          <form class="my-10" netify>
+          <form name="contact" method="POST" class="my-10" netify>
             <p class="mb-8">
               Keep in touch! If you're looking to get ahold of old guildies, try
               the Discord or Facebook links. If those don't work, contact
@@ -307,18 +307,20 @@
             </label>
 
             <div class="px-4 mt-4 text-grey-darker">
-              <input
+              <button
                 type="submit"
-                value="Send Message"
                 class="cursor-pointer uppercase font-semibold border-white bg-white border-solid border rounded p-3 disabled:opacity-25"
                 :disabled="!contact.name && !contact.email && !contact.message"
-              />
-              <input
+              >
+                Send message
+              </button>
+              <button
                 type="reset"
-                value="Reset"
                 class="cursor-pointer uppercase font-semibold border-white bg-white border-solid border rounded p-3"
                 @click="contact = { name: '', email: '', message: '' }"
-              />
+              >
+                Reset
+              </button>
             </div>
           </form>
         </article>
