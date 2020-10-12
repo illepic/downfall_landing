@@ -27,9 +27,5 @@ window.dfState = function () {
         ? false
         : `max-height: ${this.$refs.expando.scrollHeight}px`
     },
-    disableContact() {
-      const { name, email, message } = this.contact
-      return !name && !email && !message
-    },
   }
 }

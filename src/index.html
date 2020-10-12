@@ -41,7 +41,7 @@
     ></div>
 
     <div
-      class="relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20 transition-all ease-in-out duration-1000 opacity-0"
+      class="relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20 transition-opacity ease-in-out duration-1000 opacity-0"
       :class="{'opacity-100': !isPreload && activeTab === '' }"
     >
       <header id="intro" class="header flex flex-col items-center">
@@ -80,7 +80,7 @@
           <!-- Grow/collapse this -->
           <div
             x-ref="expando"
-            class="max-h-0 overflow-hidden duration-1000 delay-200"
+            class="max-h-0 overflow-hidden transition-max-height duration-1000 delay-200"
             :style="animateHeight()"
           >
             <div class="p-12">

@@ -19,6 +19,9 @@ module.exports = {
       transitionDuration: {
         3000: "3000ms",
       },
+      transitionProperty: {
+        "max-height": "max-height",
+      },
       maxHeight: {
         0: "0",
       },
