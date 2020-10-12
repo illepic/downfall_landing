@@ -31,13 +31,13 @@
   >
     <!-- Background -->
     <div
-      class="background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 z-0 transistion-all ease-in-out duration-500"
-      :class="{ 'scale-100': activeTab !== '', 'scale-110': activeTab === '', 'blur-zoom': activeTab !== '' }"
+      class="background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 z-0 transistion-all ease-in-out duration-500 scale-110"
+      :class="{ 'blur-zoom': activeTab !== '' }"
     ></div>
     <!-- Fade-out overlay -->
     <div
-      class="block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black z-10 transition-opacity ease-in-out duration-3000 delay-700"
-      :class="{ 'opacity-100': isPreload, 'opacity-0': !isPreload }"
+      class="block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black z-10 transition-opacity ease-in-out duration-3000 delay-700 opacity-100"
+      :class="{ 'dark-fade': !isPreload }"
     ></div>
 
     <div
@@ -139,9 +139,17 @@
       <footer class="footer mt-8 mb-4 text-base opacity-75">
         <p class="copyright">
           &copy; &lt;Downfall&gt; | Design:
-          <a href="https://html5up.net">HTML5 UP</a>
+          <a
+            href="https://html5up.net"
+            class="transition-border ease-in-out duration-200 border-dotted border-b hover:border-transparent"
+            >HTML5 UP</a
+          >
           and
-          <a href="https://github.com/illepic/downfall_landing">Garreth</a>.
+          <a
+            href="https://github.com/illepic/downfall_landing"
+            class="transition-border ease-in-out duration-200 border-dotted border-b hover:border-transparent"
+            >Garreth</a
+          >.
         </p>
       </footer>
     </div>
@@ -195,7 +203,7 @@
 
           <a
             href="https://discord.gg/hXe9rF3"
-            class="transition-all ease-in-out duration-200 border-dotted border-b hover:border-transparent"
+            class="transition-border ease-in-out duration-200 border-dotted border-b hover:border-transparent"
           >
             Join the &lt;Downfall&gt; Discord here
           </a>
@@ -222,7 +230,7 @@
           <p>
             <a
               href="https://www.facebook.com/groups/167901269916918/"
-              class="transition-all ease-in-out duration-200 border-dotted border-b hover:border-transparent"
+              class="transition-border ease-in-out duration-200 border-dotted border-b hover:border-transparent"
             >
               Join us on Facebook.
             </a>
@@ -251,8 +259,11 @@
           </p>
           <p>
             Simply ask Garreth for the credentials to access
-            <a href="https://d6.downfallguild.org"
-              >the old &lt;Downfall&gt; guild website.</a
+            <a
+              href="https://d6.downfallguild.org"
+              class="transition-border ease-in-out duration-200 border-dotted border-b hover:border-transparent"
+            >
+              the old &lt;Downfall&gt; guild website.</a
             >
           </p>
         </article>

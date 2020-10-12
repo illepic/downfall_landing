@@ -16,6 +16,10 @@
     ),
     url("../static/images/bg.webp");
 }
+.dark-fade {
+  @apply opacity-0;
+}
 .blur-zoom {
+  @apply scale-100;
   filter: blur(0.25rem);
 }
