@@ -25,7 +25,7 @@
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
     "serve": "^11.3.2",
-    "tailwindcss": "^1.8.13"
+    "tailwindcss": "^1.9.0"
   },
   "dependencies": {
     "main.css": "^2.1.0"
