@@ -322,7 +322,7 @@
               <button
                 type="submit"
                 class="cursor-pointer uppercase font-semibold border-white bg-white border-solid border rounded p-3 disabled:opacity-25"
-                :disabled="!contact.name && !contact.email && !contact.message"
+                :disabled="!contact.name || !contact.email || !contact.message"
               >
                 Send message
               </button>
