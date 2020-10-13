@@ -310,7 +310,7 @@
                   name="name"
                   id="name"
                   class="form-input mt-2 block w-full"
-                  x-model="contact.name"
+                  required
                 />
               </label>
               <label class="block px-4 w-1/2">
@@ -320,7 +320,7 @@
                   name="email"
                   id="email"
                   class="form-input mt-2 block w-full"
-                  x-model="contact.email"
+                  required
                 />
               </label>
             </div>
@@ -332,7 +332,7 @@
                 id="message"
                 rows="3"
                 class="form-textarea mt-2 block w-full"
-                x-model="contact.message"
+                required
               ></textarea>
             </label>
 
@@ -340,16 +340,8 @@
               <button
                 type="submit"
                 class="cursor-pointer uppercase font-semibold border-white bg-white border-solid border rounded p-3 disabled:opacity-25"
-                :disabled="!contact.name || !contact.email || !contact.message"
               >
                 Send message
-              </button>
-              <button
-                type="reset"
-                class="cursor-pointer uppercase font-semibold border-white bg-white border-solid border rounded p-3"
-                @click="contact = { name: '', email: '', message: '' }"
-              >
-                Reset
               </button>
             </div>
           </form>

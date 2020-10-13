@@ -7,11 +7,6 @@ window.dfState = function dfState() {
     isPreload: true,
     activeTab: window.location.hash,
     lastTab: window.location.hash,
-    contact: {
-      name: "",
-      email: "",
-      message: "",
-    },
     dfInit() {
       setTimeout(() => {
         this.isPreload = false;
