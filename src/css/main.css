@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .opacity-0-win {
+    @apply opacity-0;
+  }
+  .scale-100-win {
+    @apply scale-100;
+  }
+  .filter-blur {
+    filter: blur(0.25rem);
+  }
+}
+
 [x-cloak] {
   @apply hidden;
 }
@@ -15,12 +27,4 @@
       rgba(0, 0, 0, 0.5) 100%
     ),
     url("../static/images/bg.webp");
-}
-
-.dark-fade {
-  @apply opacity-0;
-}
-.blur-zoom {
-  @apply scale-100;
-  filter: blur(0.25rem);
 }

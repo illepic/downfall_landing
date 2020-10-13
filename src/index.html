@@ -34,12 +34,12 @@
     <!-- Background -->
     <div
       class="df-bg background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 -z-10 transistion-all ease-in-out duration-500 scale-110"
-      :class="{ 'blur-zoom': activeTab !== '' }"
+      :class="{ 'scale-100-win filter-blur': activeTab !== '' }"
     ></div>
     <!-- Fade-out overlay -->
     <div
       class="df-bg-overlay block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black -z-10 opacity-100 transition-opacity ease-in-out duration-3000 delay-700"
-      :class="{ 'dark-fade': !isPreload }"
+      :class="{ 'opacity-0-win': !isPreload }"
     ></div>
 
     <div
@@ -229,6 +229,8 @@
 
           <img
             src="./static/images/fb.webp"
+            width="1019"
+            height="515"
             alt="Facebook logo"
             class="my-10 bg-grey-darker w-full"
           />
@@ -260,7 +262,9 @@
           </h2>
 
           <img
-            src="./static/images/archive.png"
+            src="./static/images/archive.webp"
+            width="1194"
+            height="401"
             alt="Downfall old site header"
             class="my-10 bg-grey-darker w-full"
           />
