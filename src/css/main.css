@@ -6,6 +6,9 @@
   .opacity-0-win {
     @apply opacity-0;
   }
+  .opacity-100-win {
+    @apply opacity-100;
+  }
   .scale-100-win {
     @apply scale-100;
   }
