@@ -33,18 +33,18 @@
   >
     <!-- Background -->
     <div
-      class="df-bg background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 z-0 transistion-all ease-in-out duration-500 scale-110"
+      class="df-bg background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 -z-10 transistion-all ease-in-out duration-500 scale-110"
       :class="{ 'blur-zoom': activeTab !== '' }"
     ></div>
     <!-- Fade-out overlay -->
     <div
-      class="df-bg-overlay block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black z-10 transition-opacity ease-in-out duration-3000 delay-700 opacity-100"
+      class="df-bg-overlay block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black -z-10 opacity-100 transition-opacity ease-in-out duration-3000 delay-700"
       :class="{ 'dark-fade': !isPreload }"
     ></div>
 
     <div
-      class="df-intro relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20 transition-opacity ease-in-out opacity-0"
-      :class="{'duration-1000 opacity-100': !isPreload && activeTab === '' }"
+      class="df-intro relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20 opacity-0 transition-opacity ease-in-out duration-1000 delay-200"
+      :class="{'opacity-100': !isPreload && activeTab === '' }"
     >
       <header class="header flex flex-col items-center">
         <!-- Logo -->
@@ -160,8 +160,8 @@
     <main
       class="df-info fixed flex items-center justify-center inset-0 z-30 transition ease-in-out"
       role="dialog"
-      x-show="!isPreload && activeTab !== ''"
-      x-transition:enter="duration-700 delay-500"
+      x-show="activeTab !== ''"
+      x-transition:enter="duration-500 delay-700"
       x-transition:enter-start="opacity-0"
       x-transition:enter-end="opacity-100"
       x-transition:leave="duration-300"
@@ -177,7 +177,7 @@
         <article
           class="df-info__article"
           id="discord"
-          x-show="lastTab === '#discord'"
+          x-show.transition.out.duration.500ms="activeTab === '#discord'"
         >
           <h2
             class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
@@ -219,7 +219,7 @@
         <article
           class="df-info__article"
           id="facebook"
-          x-show="lastTab === '#facebook'"
+          x-show.transition.out.duration.500ms="activeTab === '#facebook'"
         >
           <h2
             class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
@@ -251,7 +251,7 @@
         <article
           class="df-info__article"
           id="archive"
-          x-show="lastTab === '#archive'"
+          x-show.transition.out.duration.500ms="activeTab === '#archive'"
         >
           <h2
             class="text-4xl font-semibold uppercase tracking-stupid-huge pb-2 border-b"
@@ -286,7 +286,7 @@
         <article
           class="df-info__article"
           id="contact"
-          x-show="lastTab == '#contact'"
+          x-show.transition.out.duration.500ms="activeTab == '#contact'"
           class="w-full"
         >
           <h2

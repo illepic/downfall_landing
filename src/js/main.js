@@ -6,23 +6,17 @@ window.dfState = function dfState() {
   return {
     isPreload: true,
     activeTab: window.location.hash,
-    lastTab: window.location.hash,
     dfInit() {
-      setTimeout(() => {
-        this.isPreload = false;
-      }, 100);
+      this.isPreload = false;
       window.addEventListener("hashchange", () => {
         this.activeTab = window.location.hash;
-        // Leave a "residual" tab for the overlay content to not disappear
-        if (window.location.hash) {
-          this.lastTab = window.location.hash;
-        }
       });
     },
     animateHeight() {
-      return this.isPreload && this.activeTab !== ""
-        ? false
-        : `max-height: ${this.$refs.expando.scrollHeight}px`;
+      // If loaded animate height. Will only animate ONCE, on initial load.
+      return !this.isPreload
+        ? `max-height: ${this.$refs.expando.scrollHeight}px`
+        : false;
     },
   };
 };

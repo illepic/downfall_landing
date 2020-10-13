@@ -1,3 +1,5 @@
+const customForms = require("@tailwindcss/custom-forms");
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -33,6 +35,9 @@ module.exports = {
       letterSpacing: {
         "stupid-huge": ".5rem",
       },
+      zIndex: {
+        "-10": "-10",
+      },
     },
     customForms: (theme) => ({
       default: {
@@ -48,7 +53,7 @@ module.exports = {
   variants: {
     opacity: ({ after }) => after(["disabled"]),
   },
-  plugins: [require("@tailwindcss/custom-forms")],
+  plugins: [customForms],
   corePlugins: {
     container: false,
   },

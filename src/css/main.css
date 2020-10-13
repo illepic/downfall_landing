@@ -16,6 +16,7 @@
     ),
     url("../static/images/bg.webp");
 }
+
 .dark-fade {
   @apply opacity-0;
 }
