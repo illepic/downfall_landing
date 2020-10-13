@@ -27,3 +27,7 @@ Based on HTML5 Up Dimension theme.
 ## Push to production
 
 1. Deploys to Netlify on every push to `master`
+
+## Cypress testing
+
+1. Cypress will run against netlify previews
