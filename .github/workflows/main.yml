@@ -22,6 +22,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # Wait for netlify to completely finish
+      - name: Wait for Netlify Deployment
+        uses: probablyup/wait-for-netlify-action@3.2.0
+        with:
+          # The Netlify site ID to test against, get this from the Netlify UI under site settings.
+          site_id: 78dab232-698e-4fce-a836-1de826fd5817
+          # The max time to wait after the deployment is ready for a valid HTTP status code.
+          # max_timeout: # optional
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
