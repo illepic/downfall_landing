@@ -175,7 +175,7 @@
       >
         <!-- Discord -->
         <article
-          class="df-info__article"
+          class="df-info__article discord"
           id="discord"
           x-show.transition.out.duration.500ms="activeTab === '#discord'"
         >
@@ -217,7 +217,7 @@
 
         <!-- Facebook -->
         <article
-          class="df-info__article"
+          class="df-info__article facebook"
           id="facebook"
           x-show.transition.out.duration.500ms="activeTab === '#facebook'"
         >
@@ -251,7 +251,7 @@
 
         <!-- Archive -->
         <article
-          class="df-info__article"
+          class="df-info__article archive"
           id="archive"
           x-show.transition.out.duration.500ms="activeTab === '#archive'"
         >
@@ -288,7 +288,7 @@
 
         <!-- Contact -->
         <article
-          class="df-info__article"
+          class="df-info__article contact"
           id="contact"
           x-show.transition.out.duration.500ms="activeTab == '#contact'"
           class="w-full"
@@ -353,7 +353,7 @@
 
         <!-- Single close button -->
         <button
-          class="absolute top-1 right-1 w-12 h-12 p-1 rounded-full hover:bg-white hover:bg-opacity-25"
+          class="df-info__close absolute top-1 right-1 w-12 h-12 p-1 rounded-full hover:bg-white hover:bg-opacity-25"
           aria-label="close"
           @click="location.hash = '#'"
         >

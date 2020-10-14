@@ -27,3 +27,9 @@ Based on HTML5 Up Dimension theme.
 ## Push to production
 
 1. Deploys to Netlify on every push to `master`
+
+## Cypress testing
+
+1. In one terminal run `npm start`
+1. In another terminal run `npm run cypress`
+1. Run tests manually from the Cypress UI
