@@ -30,4 +30,6 @@ Based on HTML5 Up Dimension theme.
 
 ## Cypress testing
 
-1. Cypress will run against netlify previews
+1. In one terminal run `npm start`
+1. In another terminal run `npm run cypress`
+1. Run tests manually from the Cypress UI
