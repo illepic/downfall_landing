@@ -66,7 +66,4 @@ dist
 # jetbrains
 .idea
 
-# parcel
-.parcel-cache
-
 cypress/videos

@@ -1,12 +1,4 @@
-const customForms = require("@tailwindcss/custom-forms");
-
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-    defaultLineHeights: true,
-    standardFontWeights: true,
-  },
   purge: ["./src/**/*.html", "./src/**/*.js"],
   theme: {
     colors: {
@@ -53,7 +45,6 @@ module.exports = {
   variants: {
     opacity: ({ after }) => after(["disabled"]),
   },
-  plugins: [customForms],
   corePlugins: {
     container: false,
   },
