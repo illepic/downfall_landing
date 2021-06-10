@@ -67,6 +67,6 @@ dist
 .idea
 
 # parcel
-.cache
+.parcel-cache
 
 cypress/videos
