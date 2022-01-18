@@ -26,10 +26,11 @@
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^7.0.4",
     "parcel": "^2.2.1",
+    "postcss": "^8.4.5",
     "postcss-preset-env": "^7.2.3",
     "prettier": "^2.5.1",
     "serve": "^13.0.2",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^3.0.15"
   },
   "dependencies": {}
 }

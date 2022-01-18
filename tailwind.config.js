@@ -1,7 +1,8 @@
 module.exports = {
-  purge: ["./src/**/*.html", "./src/**/*.js"],
+  content: ["./src/**/*.{html,js}"],
   theme: {
     colors: {
+      current: "currentColor",
       transparent: "transparent",
       white: "#fff",
       black: "#000",
