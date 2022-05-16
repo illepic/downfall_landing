@@ -24,7 +24,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
-    "husky": "^7.0.4",
+    "husky": "^8.0.0",
     "parcel": "^2.2.1",
     "postcss": "^8.4.5",
     "postcss-preset-env": "^7.2.3",
