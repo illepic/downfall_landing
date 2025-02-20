@@ -85,13 +85,14 @@ describe("Downfall tests", () => {
 
     cy.get("@contact").contains("Keep in touch").should("be.visible");
 
-    cy.get("#name").type("Cypress Test").should("have.value", "Cypress Test");
-    cy.get("#email")
-      .type("valid@email.com")
-      .should("have.value", "valid@email.com");
-    cy.get("#message")
-      .type("Hello this is a message.")
-      .should("have.value", "Hello this is a message.");
+    cy.get("#name").type("Cypress Test");
+    cy.get("#name").should("have.value", "Cypress Test");
+
+    cy.get("#email").type("valid@email.com");
+    cy.get("#email").should("have.value", "valid@email.com");
+
+    cy.get("#message").type("Hello this is a message.");
+    cy.get("#message").should("have.value", "Hello this is a message.");
 
     // cy.get("#contact-submit").click(); // Figure out submitting only on prod
 
