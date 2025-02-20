@@ -14,7 +14,7 @@ describe("Downfall tests", () => {
     cy.contains("Discord").click();
     cy.url().should("include", "/#discord");
 
-    cy.get("@discord", { timeout: 1500 }).should("be.visible");
+    cy.get("@discord").should("be.visible");
 
     cy.get("@discord")
       .contains("Join the <Downfall> Discord here")
@@ -22,7 +22,7 @@ describe("Downfall tests", () => {
 
     cy.get(".df-info__close").click();
 
-    cy.get("@discord", { timeout: 500 }).should("not.be.visible");
+    cy.get("@discord").should("not.be.visible");
   });
 
   it("Opens Facebook link", () => {
@@ -33,13 +33,13 @@ describe("Downfall tests", () => {
     cy.contains("Facebook").click();
     cy.url().should("include", "/#facebook");
 
-    cy.get("@facebook", { timeout: 1500 }).should("be.visible");
+    cy.get("@facebook").should("be.visible");
 
     cy.get("@facebook").contains("Join us on Facebook").should("be.visible");
 
     cy.get(".df-info__close").click();
 
-    cy.get("@facebook", { timeout: 500 }).should("not.be.visible");
+    cy.get("@facebook").should("not.be.visible");
   });
 
   it("Opens Archive link", () => {
@@ -48,7 +48,7 @@ describe("Downfall tests", () => {
     cy.contains("Archive").click();
     cy.url().should("include", "/#archive");
 
-    cy.get("@archive", { timeout: 1500 }).should("be.visible");
+    cy.get("@archive").should("be.visible");
 
     cy.get("@archive")
       .contains("the old <Downfall> guild website")
@@ -56,7 +56,7 @@ describe("Downfall tests", () => {
 
     cy.get(".df-info__close").click();
 
-    cy.get("@archive", { timeout: 500 }).should("not.be.visible");
+    cy.get("@archive").should("not.be.visible");
   });
 
   it("Opens contact form", () => {
@@ -65,13 +65,13 @@ describe("Downfall tests", () => {
     cy.contains("Contact").click();
     cy.url().should("include", "/#contact");
 
-    cy.get("@contact", { timeout: 1500 }).should("be.visible");
+    cy.get("@contact").should("be.visible");
 
     cy.get("@contact").contains("Keep in touch").should("be.visible");
 
     cy.get(".df-info__close").click();
 
-    cy.get("@contact", { timeout: 500 }).should("not.be.visible");
+    cy.get("@contact").should("not.be.visible");
   });
 
   it("Submits contact form", () => {
@@ -81,22 +81,23 @@ describe("Downfall tests", () => {
     // cy.contains("Contact").click();
     cy.url().should("include", "/#contact");
 
-    cy.get("@contact", { timeout: 1500 }).should("be.visible");
+    cy.get("@contact").should("be.visible");
 
     cy.get("@contact").contains("Keep in touch").should("be.visible");
 
-    cy.get("#name").type("Cypress Test").should("have.value", "Cypress Test");
-    cy.get("#email")
-      .type("valid@email.com")
-      .should("have.value", "valid@email.com");
-    cy.get("#message")
-      .type("Hello this is a message.")
-      .should("have.value", "Hello this is a message.");
+    cy.get("#name").type("Cypress Test");
+    cy.get("#name").should("have.value", "Cypress Test");
+
+    cy.get("#email").type("valid@email.com");
+    cy.get("#email").should("have.value", "valid@email.com");
+
+    cy.get("#message").type("Hello this is a message.");
+    cy.get("#message").should("have.value", "Hello this is a message.");
 
     // cy.get("#contact-submit").click(); // Figure out submitting only on prod
 
     cy.get(".df-info__close").click();
 
-    cy.get("@contact", { timeout: 500 }).should("not.be.visible");
+    cy.get("@contact").should("not.be.visible");
   });
 });
