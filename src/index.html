@@ -33,18 +33,18 @@
   >
     <!-- Background -->
     <div
-      class="df-bg background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 -z-10 transistion-all ease-in-out duration-500 scale-110"
-      :class="{ 'scale-100-win filter-blur': activeTab !== '' }"
+      class="df-bg background block fixed w-screen h-screen bg-cover bg-center bg-no-repeat transform bg-fixed inset-0 -z-10 transistion-all ease-in-out duration-500"
+      :class="{ 'scale-100 blur-xs': activeTab !== '', 'scale-110': activeTab === '' }"
     ></div>
     <!-- Fade-out overlay -->
     <div
-      class="df-bg-overlay block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black -z-10 opacity-100 transition-opacity ease-in-out duration-3000 delay-700"
-      :class="{ 'opacity-0-win': !isPreload }"
+      class="df-bg-overlay block fixed w-screen h-screen bg-cover bg-center bg-no-repeat bg-fixed inset-0 bg-black -z-10 transition-opacity ease-in-out duration-3000 delay-700"
+      :class="{'opacity-100': isPreload, 'opacity-0': !isPreload }"
     ></div>
 
     <div
-      class="df-intro relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20 opacity-0 transition-opacity ease-in-out duration-1000 delay-200"
-      :class="{'opacity-100-win': !isPreload && activeTab === '' }"
+      class="df-intro relative max-w-4xl mx-auto flex flex-col justify-around md:h-screen z-20 transition-opacity ease-in-out duration-1000 delay-200"
+      :class="{'opacity-0': isPreload && activeTab !== '', 'opacity-100': !isPreload && activeTab === '' }"
     >
       <header class="header flex flex-col items-center">
         <!-- Logo -->
@@ -104,7 +104,7 @@
         <div class="line w-px h-12 bg-white"></div>
         <nav class="nav px-8 w-full md:w-auto">
           <ul
-            class="md:flex border-solid border rounded divide-y md:divide-x md:divide-y-0 divide-white"
+            class="md:flex border-solid border rounded-sm divide-y md:divide-x md:divide-y-0 divide-white"
           >
             <li class="md:w-40">
               <a
@@ -343,7 +343,7 @@
             <div class="px-4 mt-4 text-grey-darker">
               <button
                 type="submit"
-                class="cursor-pointer uppercase font-semibold border-white bg-white border-solid border rounded p-3 disabled:opacity-25"
+                class="cursor-pointer uppercase font-semibold border-white bg-white border-solid border rounded-sm p-3 disabled:opacity-25"
               >
                 Send message
               </button>
@@ -375,7 +375,5 @@
     </main>
 
     <script src="./js/main.js"></script>
-
-    <script></script>
   </body>
 </html>

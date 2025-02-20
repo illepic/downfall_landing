@@ -1,18 +1,23 @@
-.df-bg-overlay {
+@import "tailwindcss";
+
+@config "../../tailwind.config.js";
+
+@utility df-bg-overlay {
   @apply opacity-0;
 }
-.df-intro {
+
+@utility df-intro {
   @apply opacity-100;
 }
-.df-expando {
+@utility df-expando {
   @apply max-h-full;
 }
-.df-info {
+@utility df-info {
   @apply static block;
 }
-.df-info__wrapper {
+@utility df-info__wrapper {
   @apply mx-auto;
 }
-.df-info__article {
+@utility df-info__article {
   @apply mb-8;
 }
