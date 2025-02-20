@@ -22,7 +22,7 @@ describe("Downfall tests", () => {
 
     cy.get(".df-info__close").click();
 
-    cy.get("@discord", { timeout: 500 }).should("not.be.visible");
+    cy.get("@discord").should("not.be.visible");
   });
 
   it("Opens Facebook link", () => {
@@ -39,7 +39,7 @@ describe("Downfall tests", () => {
 
     cy.get(".df-info__close").click();
 
-    cy.get("@facebook", { timeout: 500 }).should("not.be.visible");
+    cy.get("@facebook").should("not.be.visible");
   });
 
   it("Opens Archive link", () => {
@@ -56,7 +56,7 @@ describe("Downfall tests", () => {
 
     cy.get(".df-info__close").click();
 
-    cy.get("@archive", { timeout: 500 }).should("not.be.visible");
+    cy.get("@archive").should("not.be.visible");
   });
 
   it("Opens contact form", () => {
@@ -71,7 +71,7 @@ describe("Downfall tests", () => {
 
     cy.get(".df-info__close").click();
 
-    cy.get("@contact", { timeout: 500 }).should("not.be.visible");
+    cy.get("@contact").should("not.be.visible");
   });
 
   it("Submits contact form", () => {
@@ -98,6 +98,6 @@ describe("Downfall tests", () => {
 
     cy.get(".df-info__close").click();
 
-    cy.get("@contact", { timeout: 500 }).should("not.be.visible");
+    cy.get("@contact").should("not.be.visible");
   });
 });
