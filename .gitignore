@@ -67,3 +67,5 @@ dist
 .idea
 
 cypress/videos
+
+.parcel-cache
