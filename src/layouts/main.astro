@@ -1,0 +1,45 @@
+---
+import "@/styles/global.css"
+import { Font, getImage } from "astro:assets"
+
+import background from "@/assets/bg.jpg"
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = "<Downfall> Guild. Droppin' bombs since 2004.",
+  description = "The World of Warcraft guild <Downfall> is back for WoW: Forever.",
+} = Astro.props
+
+const ogImage = await getImage({ src: background, width: 1200, height: 630, fit: "cover", format: "jpg" })
+const ogImageUrl = new URL(ogImage.src, Astro.site)
+---
+
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b2231" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="<Downfall>" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <Font cssVariable="--font-marcellus" preload />
+    <Font cssVariable="--font-open-sans" preload={[{ weight: 300 }, { weight: 400 }]} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-svh antialiased">
+    <slot />
+  </body>
+</html>

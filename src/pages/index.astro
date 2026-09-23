@@ -1,0 +1,86 @@
+---
+import { Picture, getImage } from "astro:assets"
+
+import background from "@/assets/bg.jpg"
+import discordLogo from "@/assets/discord.svg?url"
+import DownfallLogo from "@/assets/dflogo.svg"
+import facebookImage from "@/assets/fb.webp"
+import { GuildPortal } from "@/components/guild-portal"
+import { LaunchCountdown } from "@/components/launch-countdown"
+import Layout from "@/layouts/main.astro"
+
+const FOUNDED = 2004
+const FOREVER_URL = "https://worldofwarcraft.blizzard.com/en-us/forever"
+
+// Dialog images are optimized here and handed to the React island as plain <img> attributes.
+const facebook = await getImage({ src: facebookImage, widths: [640, 1019], format: "webp" })
+const images = {
+  discord: { src: discordLogo },
+  facebook: {
+    src: facebook.src,
+    srcSet: facebook.srcSet.attribute,
+    sizes: "(min-width: 640px) 36rem, calc(100vw - 6rem)",
+    width: facebookImage.width,
+    height: facebookImage.height,
+  },
+}
+---
+
+<Layout>
+  <div aria-hidden="true" class="fixed inset-0 -z-10">
+    <Picture src={background} formats={["avif", "webp"]} layout="full-width" priority alt="" class="size-full object-cover" />
+    <div class="absolute inset-0 bg-radial from-background/60 to-background"></div>
+  </div>
+
+  <main class="mx-auto flex min-h-svh max-w-4xl flex-col items-center justify-center gap-10 px-4 py-16 text-center">
+    <div class="size-32 rounded-full border-4 border-gold bg-secondary p-6 shadow-2xl ring-4 ring-background sm:size-40">
+      <DownfallLogo fill="currentColor" class="size-full" />
+    </div>
+
+    <header class="flex flex-col items-center gap-5">
+      <p class="font-heading text-lg text-foreground uppercase">Droppin' bombs since 2004</p>
+      <h1
+        class="bg-linear-to-b from-[#f3eee2] to-[#e2c2ab] bg-clip-text font-heading text-5xl leading-tight text-transparent drop-shadow-lg sm:text-7xl"
+      >
+        Welcome back, &lt;Downfall&gt;
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+        <span data-founded={FOUNDED}>{new Date().getFullYear() - FOUNDED}</span> years after we first stormed Azeroth, &lt;Downfall&gt;
+        rides again. <a href={FOREVER_URL} class="text-foreground underline underline-offset-4 hover:no-underline">World of Warcraft: Forever</a> brings back the world we fell in love with in Vanilla,
+        lovingly rebuilt and ready for new adventures. Dust off your hearthstone, rally the old raid, and find us on
+        Discord and Facebook before <a href={FOREVER_URL} class="text-foreground underline underline-offset-4 hover:no-underline">WoW: Forever</a> launches on November 4, 2026. Join us!
+      </p>
+    </header>
+
+    <section aria-labelledby="countdown-heading" class="flex w-full max-w-3xl flex-col items-center gap-4">
+      <h2 id="countdown-heading" class="font-heading text-lg uppercase">Countdown to launch</h2>
+      <LaunchCountdown client:load />
+    </section>
+
+    <GuildPortal images={images} client:idle />
+
+    <footer class="mt-6 flex flex-col items-center gap-3 border-t border-gold/40 pt-6 text-sm text-muted-foreground">
+      <p>
+        &copy; &lt;Downfall&gt; · Design by <a href="https://github.com/illepic/downfall_landing" class="underline-offset-4 hover:underline">Garreth</a>
+      </p>
+      <p class="max-w-xl text-xs">
+        World of Warcraft and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment,
+        Inc. This is a fan site and is not affiliated with Blizzard.
+      </p>
+    </footer>
+  </main>
+
+  <!-- Lets Netlify detect the contact form at build time; the real form renders in the dialog. -->
+  <form name="contact-form" data-netlify="true" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
+</Layout>
+
+<script>
+  // Keep the "years since" figure current without a rebuild.
+  for (const el of document.querySelectorAll<HTMLElement>("[data-founded]")) {
+    el.textContent = String(new Date().getFullYear() - Number(el.dataset.founded))
+  }
+</script>
