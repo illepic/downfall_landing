@@ -9,8 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "typecheck": "tsc --noEmit"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/react": "^7.0.0",
@@ -32,7 +31,6 @@
     "esbuild": true
   },
   "devDependencies": {
-    "shadcn": "^4.21.0",
-    "typescript": "^7.0.2"
+    "shadcn": "^4.21.0"
   }
 }
