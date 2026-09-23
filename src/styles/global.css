@@ -1,14 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource/marcellus";
-@import "@fontsource-variable/open-sans";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: 'Marcellus', 'Times New Roman', serif;
-    --font-sans: 'Open Sans Variable', sans-serif;
+    --font-heading: var(--font-marcellus);
+    --font-sans: var(--font-open-sans);
     --color-gold: var(--gold);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);

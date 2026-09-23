@@ -1,7 +1,5 @@
 import * as React from "react"
 
-import facebookImage from "@/assets/fb.webp"
-import discordLogo from "@/assets/discord.svg?url"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -15,27 +13,29 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 
+type ImageProps = React.ImgHTMLAttributes<HTMLImageElement>
+
 type Section = {
   title: string
   description: string
-  image?: { src: string; alt: string }
+  image?: ImageProps & { alt: string }
   link?: { href: string; label: string }
   body?: React.ReactNode
 }
 
-const sections: Section[] = [
+const getSections = (images: GuildPortalProps["images"]): Section[] => [
   {
     title: "Discord",
     description:
       "Downfall has moved mainly to Discord for both in-game voice chat and out-of-game collaboration. Discord is free and runs in both a browser and an app.",
-    image: { src: discordLogo, alt: "Discord logo" },
+    image: { ...images.discord, alt: "Discord logo" },
     link: { href: "https://discord.gg/hXe9rF3", label: "Join the <Downfall> Discord" },
   },
   {
     title: "Facebook",
     description:
       "Though <Downfall> was raiding before Facebook even existed, these days the <Downfall> Facebook page is quite active.",
-    image: { src: facebookImage.src, alt: "Facebook logo" },
+    image: { ...images.facebook, alt: "Facebook logo" },
     link: { href: "https://www.facebook.com/groups/167901269916918/", label: "Join us on Facebook" },
   },
   {
@@ -46,7 +46,12 @@ const sections: Section[] = [
   },
 ]
 
-export function GuildPortal() {
+type GuildPortalProps = {
+  images: { discord: ImageProps; facebook: ImageProps }
+}
+
+export function GuildPortal({ images }: GuildPortalProps) {
+  const sections = getSections(images)
   return (
     <nav aria-label="Downfall communities" className="flex flex-wrap justify-center gap-3 sm:gap-4">
       {sections.map((section) => (
@@ -63,8 +68,7 @@ export function GuildPortal() {
             </DialogHeader>
             {section.image && (
               <img
-                src={section.image.src}
-                alt={section.image.alt}
+                {...section.image}
                 className="w-full border border-gold/40 bg-black/40 outline outline-offset-[-8px] outline-gold/40"
               />
             )}

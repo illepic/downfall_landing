@@ -1,19 +1,34 @@
 ---
-import { Picture } from "astro:assets"
+import { Picture, getImage } from "astro:assets"
 
 import background from "@/assets/bg.jpg"
+import discordLogo from "@/assets/discord.svg?url"
 import DownfallLogo from "@/assets/dflogo.svg"
+import facebookImage from "@/assets/fb.webp"
 import { GuildPortal } from "@/components/guild-portal"
 import { LaunchCountdown } from "@/components/launch-countdown"
 import Layout from "@/layouts/main.astro"
 
 const FOUNDED = 2004
 const FOREVER_URL = "https://worldofwarcraft.blizzard.com/en-us/forever"
+
+// Dialog images are optimized here and handed to the React island as plain <img> attributes.
+const facebook = await getImage({ src: facebookImage, widths: [640, 1019], format: "webp" })
+const images = {
+  discord: { src: discordLogo },
+  facebook: {
+    src: facebook.src,
+    srcSet: facebook.srcSet.attribute,
+    sizes: "(min-width: 640px) 36rem, calc(100vw - 6rem)",
+    width: facebookImage.width,
+    height: facebookImage.height,
+  },
+}
 ---
 
 <Layout>
   <div aria-hidden="true" class="fixed inset-0 -z-10">
-    <Picture src={background} formats={["avif", "webp"]} alt="" loading="eager" class="size-full object-cover" />
+    <Picture src={background} formats={["avif", "webp"]} layout="full-width" priority alt="" class="size-full object-cover" />
     <div class="absolute inset-0 bg-radial from-background/60 to-background"></div>
   </div>
 
@@ -42,7 +57,7 @@ const FOREVER_URL = "https://worldofwarcraft.blizzard.com/en-us/forever"
       <LaunchCountdown client:load />
     </section>
 
-    <GuildPortal client:load />
+    <GuildPortal images={images} client:idle />
 
     <footer class="mt-6 flex flex-col items-center gap-3 border-t border-gold/40 pt-6 text-sm text-muted-foreground">
       <p>
