@@ -1,34 +1,20 @@
 {
   "name": "downfall-landing",
-  "version": "1.0.0",
-  "description": "Downfall landing page, based on dimension by HTML5 UP",
-  "source": "src/index.html",
-  "scripts": {
-    "start": "rm -rf dist && parcel",
-    "build": "rm -rf dist &&parcel build",
-    "serve": "npm run build && serve dist/",
-    "fmt": "eslint . --fix && prettier .  --write",
-    "cypress": "cypress open",
-    "prepare": "husky"
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
   },
-  "author": "Christopher Bloom",
-  "license": "ISC",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
   "dependencies": {
-    "@eslint/js": "^10.0.1",
-    "@tailwindcss/postcss": "^4.3.3",
-    "cypress": "^16.1.0",
-    "eslint": "^10.11.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-chai-friendly": "^1.2.1",
-    "eslint-plugin-cypress": "^7.0.2",
-    "eslint-plugin-promise": "^7.3.0",
-    "globals": "^17.12.0",
-    "husky": "^9.1.7",
-    "parcel": "^2.16.4",
-    "postcss": "^8.5.28",
-    "prettier": "^3.9.8",
-    "serve": "^14.2.6",
-    "svgo": "^4.1.0",
-    "tailwindcss": "^4.3.3"
+    "astro": "^7.3.4"
+  },
+  "allowScripts": {
+    "esbuild": true
   }
 }

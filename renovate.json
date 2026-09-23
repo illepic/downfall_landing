@@ -1,3 +1,0 @@
-{
-  "extends": ["config:base", "default:preserveSemverRanges"]
-}

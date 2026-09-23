@@ -1,35 +1,43 @@
-# Downfall landing page
+# Astro Starter Kit: Minimal
 
-"Temporary" page set up to direct users to other Downfall communities while the site is "in development". Building using Parcel, Tailwind, AlpineJS.
+```sh
+npm create astro@latest -- --template minimal
+```
 
-Based on HTML5 Up Dimension theme.
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## Installation
+## 🚀 Project Structure
 
-1. Node 12+/NPM 6+
-1. Clone this repo, `cd` into local folder
-1. `npm install`
+Inside of your Astro project, you'll see the following folders and files:
 
-## Local dev
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-1. `npm start`
-1. Visit [http://localhost:1234/](http://localhost:1234/)
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## Build
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-1. `npm run build`
+Any static assets, like images, can be placed in the `public/` directory.
 
-## Build and Serve
+## 🧞 Commands
 
-1. `npm run serve`
-1. Visit [http://localhost:5000/](http://localhost:5000/)
+All commands are run from the root of the project, from a terminal:
 
-## Push to production
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-1. Deploys to Netlify on every push to `master`
+## 👀 Want to learn more?
 
-## Cypress testing
-
-1. In one terminal run `npm start`
-1. In another terminal run `npm run cypress`
-1. Run tests manually from the Cypress UI
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
