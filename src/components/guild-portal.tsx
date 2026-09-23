@@ -1,6 +1,5 @@
 import * as React from "react"
 
-import archiveImage from "@/assets/archive.webp"
 import facebookImage from "@/assets/fb.webp"
 import discordLogo from "@/assets/discord.svg?url"
 import { Button } from "@/components/ui/button"
@@ -40,13 +39,6 @@ const sections: Section[] = [
     link: { href: "https://www.facebook.com/groups/167901269916918/", label: "Join us on Facebook" },
   },
   {
-    title: "Archive",
-    description:
-      "The old <Downfall> guild forums site is frozen in a non-interactive state. New posts, comments, and user account creation are all disabled. The site is also locked behind an .htaccess login and password. Simply ask Garreth for the credentials.",
-    image: { src: archiveImage.src, alt: "Downfall old site header" },
-    link: { href: "https://d6.downfallguild.org", label: "Visit the old guild website" },
-  },
-  {
     title: "Contact",
     description:
       "Keep in touch! If you're looking to get ahold of old guildies, try the Discord or Facebook links. If those don't work, contact Garreth here.",
@@ -56,10 +48,10 @@ const sections: Section[] = [
 
 export function GuildPortal() {
   return (
-    <nav aria-label="Downfall communities" className="grid w-full grid-cols-2 gap-3 sm:flex sm:w-auto sm:gap-4">
+    <nav aria-label="Downfall communities" className="flex flex-wrap justify-center gap-3 sm:gap-4">
       {sections.map((section) => (
         <Dialog key={section.title}>
-          <DialogTrigger render={<Button size="lg" className="h-12 px-6 font-heading text-lg sm:w-40" />}>
+          <DialogTrigger render={<Button size="lg" className="h-12 w-40 px-6 font-heading text-lg" />}>
             {section.title}
           </DialogTrigger>
           <DialogContent className="gap-6 border border-gold/40 p-8 text-base shadow-2xl sm:max-w-2xl sm:p-10">
