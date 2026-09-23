@@ -1,17 +1,17 @@
 ---
-
+import Layout from "@/layouts/main.astro"
+import { Button } from "@/components/ui/button"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <div class="flex min-h-svh p-6">
+    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
+      <div>
+        <h1 class="font-medium">Project ready!</h1>
+        <p>You may now add components and start building.</p>
+        <p>We've already added the button component for you.</p>
+        <Button client:load className="mt-2">Button</Button>
+      </div>
+    </div>
+  </div>
+</Layout>
