@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -31,6 +31,8 @@
     "esbuild": true
   },
   "devDependencies": {
-    "shadcn": "^4.21.0"
+    "@astrojs/check": "^0.9.10",
+    "shadcn": "^4.21.0",
+    "typescript": "^6.0.3"
   }
 }
