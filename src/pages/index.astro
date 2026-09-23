@@ -1,17 +1,55 @@
 ---
+import { Picture } from "astro:assets"
+
+import background from "@/assets/bg.jpg"
+import DownfallLogo from "@/assets/dflogo.svg"
+import { GuildPortal } from "@/components/guild-portal"
 import Layout from "@/layouts/main.astro"
-import { Button } from "@/components/ui/button"
 ---
 
 <Layout>
-  <div class="flex min-h-svh p-6">
-    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-      <div>
-        <h1 class="font-medium">Project ready!</h1>
-        <p>You may now add components and start building.</p>
-        <p>We've already added the button component for you.</p>
-        <Button client:load className="mt-2">Button</Button>
-      </div>
-    </div>
+  <div aria-hidden="true" class="fixed inset-0 -z-10">
+    <Picture src={background} formats={["avif", "webp"]} alt="" loading="eager" class="size-full object-cover" />
+    <div class="absolute inset-0 bg-radial from-background/60 to-background"></div>
   </div>
+
+  <main class="mx-auto flex min-h-svh max-w-4xl flex-col items-center justify-center gap-10 px-4 py-16 text-center">
+    <div class="size-32 rounded-full border-4 border-gold bg-secondary p-6 shadow-2xl ring-4 ring-background sm:size-40">
+      <DownfallLogo fill="currentColor" class="size-full" />
+    </div>
+
+    <header class="flex flex-col items-center gap-5">
+      <p class="font-heading text-lg text-foreground uppercase">Droppin' bombs since 2004</p>
+      <h1
+        class="bg-linear-to-b from-[#f3eee2] to-[#e2c2ab] bg-clip-text font-heading text-5xl leading-tight text-transparent drop-shadow-lg sm:text-7xl"
+      >
+        Thank you, &lt;Downfall&gt;
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+        The website for the World of Warcraft guild &lt;Downfall&gt; will be hibernating for awhile. It has been a joy and
+        honor to host our original out-of-game collaboration space since Vanilla. Below are links to the current
+        &lt;Downfall&gt; online communities. Join us!
+      </p>
+      <p class="font-heading text-lg">— Garreth</p>
+    </header>
+
+    <GuildPortal client:load />
+
+    <footer class="mt-6 flex flex-col items-center gap-3 border-t border-gold/40 pt-6 text-sm text-muted-foreground">
+      <p>
+        &copy; &lt;Downfall&gt; · Design by <a href="https://github.com/illepic/downfall_landing" class="underline-offset-4 hover:underline">Garreth</a>
+      </p>
+      <p class="max-w-xl text-xs">
+        World of Warcraft and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment,
+        Inc. This is a fan site and is not affiliated with Blizzard.
+      </p>
+    </footer>
+  </main>
+
+  <!-- Lets Netlify detect the contact form at build time; the real form renders in the dialog. -->
+  <form name="contact-form" data-netlify="true" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
 </Layout>

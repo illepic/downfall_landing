@@ -1,15 +1,28 @@
 ---
 import "@/styles/global.css"
+import favicon from "@/assets/dflogo.svg?url"
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = "<Downfall> Guild. Droppin' bombs since 2004.",
+  description = "The landing page for Downfall, a World of Warcraft guild",
+} = Astro.props
 ---
 
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Astro App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b2231" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <title>{title}</title>
   </head>
-  <body>
+  <body class="min-h-svh antialiased">
     <slot />
   </body>
 </html>
