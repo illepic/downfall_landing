@@ -1,0 +1,28 @@
+---
+// Gold filigree pieces for the four corners of a `relative` container.
+interface Props {
+  class?: string
+}
+
+const { class: className = "size-10 sm:size-12" } = Astro.props
+const corners = ["top-1 left-1", "top-1 right-1 -scale-x-100", "bottom-1 left-1 -scale-y-100", "bottom-1 right-1 -scale-100"]
+---
+
+{
+  corners.map((position) => (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 48 48"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      class:list={["pointer-events-none absolute text-gold", position, className]}
+    >
+      <path d="M3 44V15C3 8.4 8.4 3 15 3h29" stroke-width="1.5" />
+      <path d="M9 36V18c0-5 4-9 9-9h18" stroke-width="1" opacity="0.55" />
+      <path d="M15 10.5 19.5 15 15 19.5 10.5 15Z" fill="currentColor" stroke="none" />
+      <circle cx="3" cy="44" r="1.75" fill="currentColor" stroke="none" />
+      <circle cx="44" cy="3" r="1.75" fill="currentColor" stroke="none" />
+    </svg>
+  ))
+}

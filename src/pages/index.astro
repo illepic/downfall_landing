@@ -6,11 +6,17 @@ import discordLogo from "@/assets/discord.svg?url"
 import DownfallLogo from "@/assets/dflogo.svg"
 import facebookImage from "@/assets/fb.webp"
 import { GuildPortal } from "@/components/guild-portal"
-import { LaunchCountdown } from "@/components/launch-countdown"
+import { Shield, Swords } from "lucide-react"
+
+import Corners from "@/components/ornaments/corners.astro"
+import Divider from "@/components/ornaments/divider.astro"
 import Layout from "@/layouts/main.astro"
 
 const FOUNDED = 2004
 const FOREVER_URL = "https://worldofwarcraft.blizzard.com/en-us/forever"
+
+const FOREVER_GUILD_URL = "https://bloom.rocks/c/downfall/g/downfall-forever"
+const RETAIL_GUILD_URL = "https://bloom.rocks/c/downfall/g/downfall"
 
 // Dialog images are optimized here and handed to the React island as plain <img> attributes.
 const facebook = await getImage({ src: facebookImage, widths: [640, 1019], format: "webp" })
@@ -37,25 +43,55 @@ const images = {
       <DownfallLogo fill="currentColor" class="size-full" />
     </div>
 
-    <header class="flex flex-col items-center gap-5">
-      <p class="font-heading text-lg text-foreground uppercase">Droppin' bombs since 2004</p>
-      <h1
-        class="bg-linear-to-b from-[#f3eee2] to-[#e2c2ab] bg-clip-text font-heading text-5xl leading-tight text-transparent drop-shadow-lg sm:text-7xl"
-      >
-        Welcome back, &lt;Downfall&gt;
-      </h1>
-      <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-        <span data-founded={FOUNDED}>{new Date().getFullYear() - FOUNDED}</span> years after we first stormed Azeroth, &lt;Downfall&gt;
-        rides again. <a href={FOREVER_URL} class="text-foreground underline underline-offset-4 hover:no-underline">World of Warcraft: Forever</a> brings back the world we fell in love with in Vanilla,
-        lovingly rebuilt and ready for new adventures. Dust off your hearthstone, rally the old raid, and find us on
-        Discord and Facebook before <a href={FOREVER_URL} class="text-foreground underline underline-offset-4 hover:no-underline">WoW: Forever</a> launches on November 4, 2026. Join us!
-      </p>
-    </header>
+    <div class="bg-lattice relative flex w-full flex-col items-center gap-10 rounded-2xl border border-gold/40 bg-background/75 p-6 shadow-2xl backdrop-blur-sm sm:p-10">
+      <Corners />
+      <header class="flex flex-col items-center gap-5">
+        <p class="font-heading text-lg text-foreground uppercase">Droppin' bombs since 2004</p>
+        <h1
+          class="bg-linear-to-b from-[#f3eee2] to-[#e2c2ab] bg-clip-text font-heading text-5xl leading-tight text-transparent drop-shadow-lg sm:text-7xl"
+        >
+          Welcome back, &lt;Downfall&gt;
+        </h1>
+        <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          &lt;Downfall&gt; is back, <span data-founded={FOUNDED}>{new Date().getFullYear() - FOUNDED}</span> years after we first
+          stormed Azeroth. <a href={FOREVER_URL} class="text-foreground underline underline-offset-4 hover:no-underline">WoW Forever</a> is live and the guild is back to shitposting in
+          green text. We're all leveling together and thinking about raiding one day. Grab your hearthstone, log in, and come
+          find us below.
+        </p>
+      </header>
 
-    <section aria-labelledby="countdown-heading" class="flex w-full max-w-3xl flex-col items-center gap-4">
-      <h2 id="countdown-heading" class="font-heading text-lg uppercase">Countdown to launch</h2>
-      <LaunchCountdown client:load />
-    </section>
+      <Divider />
+
+      <section aria-labelledby="sites-heading" class="flex w-full max-w-3xl flex-col items-center gap-4">
+        <h2 id="sites-heading" class="font-heading text-lg uppercase">Where we play now</h2>
+        <a
+          href={FOREVER_GUILD_URL}
+          class="group relative flex w-full flex-col items-center gap-3 rounded-2xl border-2 border-gold bg-card/90 px-6 py-8 shadow-xl shadow-gold/10 transition-colors hover:bg-card focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none sm:py-10"
+        >
+          <Corners class="size-8 sm:size-10" />
+          <span class="font-heading text-3xl text-foreground sm:text-5xl">
+            &lt;Downfall&gt; on WoW Forever
+          </span>
+          <span class="text-muted-foreground">Our home base for raids, roster and everything happening in game right now.</span>
+          <span class="mt-2 inline-flex items-center gap-2 rounded-md bg-gold px-6 py-2.5 font-heading text-lg text-background">
+            <Swords aria-hidden="true" className="size-5" />
+            Go to the Forever guild site
+          </span>
+        </a>
+        <a
+          href={RETAIL_GUILD_URL}
+          class="group flex w-full flex-col items-center gap-2 rounded-xl border border-gold/50 bg-card/80 px-6 py-6 transition-colors hover:border-gold hover:bg-card focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none sm:flex-row sm:justify-between"
+        >
+          <span class="font-heading text-2xl text-foreground sm:text-3xl">&lt;Downfall&gt; on Retail</span>
+          <span
+            class="mt-2 inline-flex shrink-0 items-center gap-2 rounded-md border border-gold px-5 py-2 font-heading text-gold transition-colors group-hover:bg-gold group-hover:text-background sm:mt-0"
+          >
+            <Shield aria-hidden="true" className="size-4" />
+            Go to the Retail guild site
+          </span>
+        </a>
+      </section>
+    </div>
 
     <GuildPortal images={images} client:idle />
 
@@ -69,13 +105,6 @@ const images = {
       </p>
     </footer>
   </main>
-
-  <!-- Lets Netlify detect the contact form at build time; the real form renders in the dialog. -->
-  <form name="contact-form" data-netlify="true" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>
 </Layout>
 
 <script>

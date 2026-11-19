@@ -2,7 +2,7 @@
 import "@/styles/global.css"
 import { Font, getImage } from "astro:assets"
 
-import background from "@/assets/bg.jpg"
+import shareCard from "@/assets/og.png"
 
 interface Props {
   title?: string
@@ -11,10 +11,10 @@ interface Props {
 
 const {
   title = "<Downfall> Guild. Droppin' bombs since 2004.",
-  description = "The World of Warcraft guild <Downfall> is back for WoW: Forever.",
+  description = "The World of Warcraft guild <Downfall> is back and playing WoW Forever.",
 } = Astro.props
 
-const ogImage = await getImage({ src: background, width: 1200, height: 630, fit: "cover", format: "jpg" })
+const ogImage = await getImage({ src: shareCard, width: 1200, height: 630, format: "jpg", quality: 85 })
 const ogImageUrl = new URL(ogImage.src, Astro.site)
 ---
 
